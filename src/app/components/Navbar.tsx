@@ -45,8 +45,8 @@ const Navbar = () => {
     >
       <div className="max-w-[1240px] m-auto flex justify-between items-center p-2 text-white">
         <Link href="/">
-          <div className="flex items-center w-[233px]">
-            <Image src={logo} width={60} height={60} alt="" />
+          <div className="flex items-center">
+            <Image src={logo} width={80} height={80} alt="" />
             <h1
               style={{ color: `${textColor}` }}
               className="font-bold text-2xl uppercase ml-4"
@@ -78,13 +78,17 @@ const Navbar = () => {
         {!session ? (
           <Login />
         ) : (
-          <div className="text p-4 w-[233px]">
-            <p>Välkommen {session?.user?.name}!</p>
-            <LuLogOut
-              onClick={() => signOut()}
-              className="text-2xl hover:text-[#EA5709] cursor-pointer"
-            />
-          </div>
+          <>
+            <div>
+              <p>Välkommen {session?.user?.name}!</p>
+            </div>
+            <div className="text p-4">
+              <LuLogOut
+                onClick={() => signOut()}
+                className="text-4xl hover:text-[#EA5709] cursor-pointer animate-pulse"
+              />
+            </div>
+          </>
         )}
 
         <div onClick={handleNav} className="block md:hidden z-10">
