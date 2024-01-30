@@ -70,10 +70,12 @@ const Navbar = () => {
           <Login />
         ) : (
           <>
-            <div>
-              <p>Välkommen {session?.user?.name}!</p>
-            </div>
-            <div className="text p-4">
+            <div className="text p-4 flex flex-row items-center space-x-5">
+              <img
+                src={session?.user?.image!}
+                alt="Profile pic"
+                className="h-12 w-12 rounded-full cursor-pointer mx-auto hover:opacity-50"
+              />
               <LuLogOut
                 onClick={() => signOut()}
                 className="text-4xl hover:text-[#EA5709] cursor-pointer animate-pulse"
