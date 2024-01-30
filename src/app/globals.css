@@ -10,8 +10,8 @@ html {
 .bg-style {
   background-image: linear-gradient(
       to top,
-      #00325e,
-      #00325e,
+      #002444,
+      #002444,
       rgba(0, 0, 0, 0) 50%
     ),
     url(../../public/Hero1.jpg);

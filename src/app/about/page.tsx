@@ -5,7 +5,7 @@ const page = () => {
     <>
       <div className="bg-style bg-center bg-cover"></div>
 
-      <div className="bg-[#00325e] h-svh">
+      <div className="bg-[#002444] h-svh">
         <h1>ABOUT</h1>
       </div>
     </>
