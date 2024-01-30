@@ -3,7 +3,7 @@
 const page = () => {
   return (
     <>
-      <div className="bg-style bg-center"></div>
+      <div className="bg-style bg-center bg-cover"></div>
 
       <div className="bg-[#00325e] h-svh">
         <h1>ABOUT</h1>
