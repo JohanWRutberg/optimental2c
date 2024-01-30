@@ -7,6 +7,15 @@ html {
   font-family: "Raleway", sans-serif;
 }
 
-.custom-img {
-  background-image: url("../../public/Hero1.jpg");
+.bg-style {
+  background-image: linear-gradient(
+      to top,
+      #00325e,
+      #00325e,
+      rgba(0, 0, 0, 0) 50%
+    ),
+    url(../../public/Hero1.jpg);
+  background-repeat: no-repeat;
+
+  height: 100vh;
 }

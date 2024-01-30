@@ -39,19 +39,28 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: `${color}` }} className="fixed left-0 top-0 w-full z-10 ease-in duration-300">
+    <div
+      style={{ backgroundColor: `${color}` }}
+      className="fixed left-0 top-0 w-full z-10 ease-in duration-300"
+    >
       <div className="max-w-[1240px] m-auto flex justify-between items-center p-2 text-white">
         <Link href="/">
           <div className="flex items-center">
-            <Image src={logo} width={100} height={100} alt="" />
-            <h1 style={{ color: `${textColor}` }} className="font-bold text-2xl uppercase ml-4">
+            <Image src={logo} width={80} height={80} alt="" />
+            <h1
+              style={{ color: `${textColor}` }}
+              className="font-bold text-2xl uppercase ml-4"
+            >
               <span className="text-[#EA5709]">Opti</span>
               <span className="text-[#0097ff]">mental</span>
             </h1>
           </div>
         </Link>
 
-        <ul style={{ color: `${textColor}` }} className="hidden md:flex text cursor-pointer">
+        <ul
+          style={{ color: `${textColor}` }}
+          className="hidden md:flex text cursor-pointer"
+        >
           <li className="p-4 hover:text-[#EA5709]">
             <Link href="/">Hem</Link>
           </li>
@@ -71,7 +80,10 @@ const Navbar = () => {
         ) : (
           <div className="text p-4 ">
             <p>Välkommen {session?.user?.name}!</p>
-            <LuLogOut onClick={() => signOut()} className="text-2xl hover:text-[#EA5709] cursor-pointer" />
+            <LuLogOut
+              onClick={() => signOut()}
+              className="text-2xl hover:text-[#EA5709] cursor-pointer"
+            />
           </div>
         )}
 
