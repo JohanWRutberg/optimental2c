@@ -7,6 +7,7 @@ import { LuLogIn, LuLogOut } from "react-icons/lu";
 import logo from "../../../public/Logga.svg";
 import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Login from "./Login";
 
 const Navbar = () => {
   const [loading, setLoading] = useState(true);
@@ -64,13 +65,9 @@ const Navbar = () => {
             <Link href="/contact">Kontakt</Link>
           </li>
         </ul>
-
+        {/*  */}
         {!session ? (
-          <ul style={{ color: `${textColor}` }} className="hidden md:flex text cursor-pointer">
-            <li onClick={() => signIn("google")} className="p-4 hover:text-[#EA5709]">
-              <LuLogIn className="text-2xl" />
-            </li>
-          </ul>
+          <Login />
         ) : (
           <div className="text p-4 ">
             <p>Välkommen {session?.user?.name}!</p>
