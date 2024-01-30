@@ -69,10 +69,17 @@ const Navbar = () => {
         {!session ? (
           <Login />
         ) : (
-          <div className="text p-4 ">
-            <p>Välkommen {session?.user?.name}!</p>
-            <LuLogOut onClick={() => signOut()} className="text-2xl hover:text-[#EA5709] cursor-pointer" />
-          </div>
+          <>
+            <div>
+              <p>Välkommen {session?.user?.name}!</p>
+            </div>
+            <div className="text p-4">
+              <LuLogOut
+                onClick={() => signOut()}
+                className="text-4xl hover:text-[#EA5709] cursor-pointer animate-pulse"
+              />
+            </div>
+          </>
         )}
 
         <div onClick={handleNav} className="block md:hidden z-10">
