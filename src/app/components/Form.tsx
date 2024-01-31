@@ -27,8 +27,8 @@ export default function Form() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col md:max-w-3xl gap-2 mx-auto max-w-xs"
       >
-        <div className="md:flex gap-5">
-          <div className="flex flex-col gap-2">
+        <div className="md:flex gap-10">
+          <div className="flex flex-col gap-2 ">
             <label htmlFor="firstName" className="text-xl text-white">
               Förnamn
             </label>
@@ -40,7 +40,7 @@ export default function Form() {
               placeholder="Kjell"
             />
             {errors.firstName && (
-              <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+              <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start">
                 {errors.firstName?.message}
               </p>
             )}
@@ -57,7 +57,7 @@ export default function Form() {
               placeholder="Kriminell"
             />
             {errors.lastName && (
-              <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+              <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start">
                 {errors.lastName?.message}
               </p>
             )}
@@ -75,7 +75,7 @@ export default function Form() {
           placeholder="kenta.kofot@hotmail.com"
         />
         {errors.email && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start">
             {errors.email?.message}
           </p>
         )}
@@ -91,7 +91,7 @@ export default function Form() {
           placeholder="Stockholm"
         />
         {errors?.city && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start">
             {errors.city?.message}
           </p>
         )}
@@ -106,7 +106,7 @@ export default function Form() {
           placeholder="Berätta vad ni behöver hjälp med..."
         />
         {errors?.message && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start">
             {errors.message?.message}
           </p>
         )}

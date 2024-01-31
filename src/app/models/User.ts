@@ -1,10 +1,7 @@
 import { z } from "zod";
 
 export const BasicUserSchema = z.object({
-  firstName: z
-    .string()
-    .trim()
-    .min(2, { message: "Förnamnet måste vara minst två bokstäver" }),
+  firstName: z.string().trim().min(2, { message: "minst två bokstäver" }),
   lastName: z
     .string()
     .trim()

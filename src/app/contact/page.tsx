@@ -4,7 +4,7 @@ import Form from "../components/Form";
 const page = () => {
   return (
     <>
-      <div className="bg-style bg-center bg-cover max-h-[70vh] flex flex-col items-center gap-16 pt-52 ">
+      <div className="bg-style bg-center bg-cover h-auto flex flex-col items-center gap-16 pt-52 ">
         <div>
           <h1 className="text-white text-5xl">
             {" "}
@@ -16,12 +16,11 @@ const page = () => {
             Var god fyll i formuläret nedan så återkommer vi så snabbt vi kan
           </h1>
         </div>
-        <div className="">
-          <Form />
-        </div>
+
+        <Form />
       </div>
 
-      <div className="bg-[#002444]  md:h-[30vh]  h-[70vh]"> </div>
+      <div className="bg-[#002444]  h-[20vh]"> </div>
     </>
   );
 };

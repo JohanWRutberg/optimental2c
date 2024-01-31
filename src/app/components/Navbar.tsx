@@ -23,8 +23,8 @@ const Navbar = () => {
   useEffect(() => {
     const changeColor = () => {
       if (window.scrollY >= 250) {
-        setColor("#ffffff");
-        setTextColor("#002444");
+        setColor("#002444");
+        setTextColor("#ffffff");
       } else {
         setColor("transparent");
         setTextColor("#ffffff");
@@ -85,7 +85,7 @@ const Navbar = () => {
             <div className="text p-4">
               <LuLogOut
                 onClick={() => signOut()}
-                className="text-4xl hover:text-[#EA5709] cursor-pointer animate-pulse"
+                className="text-4xl hover:text-[#EA5709] cursor-pointer animate-pulse trans-hover"
               />
             </div>
           </>
