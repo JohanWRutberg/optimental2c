@@ -22,9 +22,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const changeColor = () => {
-      if (window.scrollY >= 800) {
+      if (window.scrollY >= 250) {
         setColor("#ffffff");
-        setTextColor("#000000");
+        setTextColor("#002444");
       } else {
         setColor("transparent");
         setTextColor("#ffffff");
@@ -61,16 +61,16 @@ const Navbar = () => {
           style={{ color: `${textColor}` }}
           className="hidden md:flex text cursor-pointer"
         >
-          <li className="p-4 hover:text-[#EA5709]">
+          <li className="p-4 hover:text-[#EA5709] trans-hover">
             <Link href="/">Hem</Link>
           </li>
-          <li className="p-4 hover:text-[#EA5709]">
+          <li className="p-4 hover:text-[#EA5709] trans-hover">
             <Link href="/#gallery">Bildspel</Link>
           </li>
-          <li className="p-4 hover:text-[#EA5709]">
+          <li className="p-4 hover:text-[#EA5709] trans-hover">
             <Link href="/about">Om mig</Link>
           </li>
-          <li className="p-4 hover:text-[#EA5709]">
+          <li className="p-4 hover:text-[#EA5709] trans-hover">
             <Link href="/contact">Kontakt</Link>
           </li>
         </ul>

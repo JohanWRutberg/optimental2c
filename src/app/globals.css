@@ -19,3 +19,7 @@ html {
 
   height: 100vh;
 }
+
+.trans-hover {
+  transition: 0.2s ease-in-out all;
+}

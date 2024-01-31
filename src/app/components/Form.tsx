@@ -25,10 +25,10 @@ export default function Form() {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col max-w-3xl gap-2 mx-auto"
+        className="flex flex-col md:max-w-3xl gap-2 mx-auto max-w-xs"
       >
-        <div className="flex gap-5">
-          <div className="flex flex-col">
+        <div className="md:flex gap-5">
+          <div className="flex flex-col gap-2">
             <label htmlFor="firstName" className="text-xl text-white">
               Förnamn
             </label>
@@ -45,7 +45,7 @@ export default function Form() {
               </p>
             )}
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-2">
             <label htmlFor="lastName" className="text-xl text-white">
               Efternamn
             </label>
@@ -99,11 +99,10 @@ export default function Form() {
         <label htmlFor="message" className="text-xl text-white">
           Meddelande
         </label>
-        <input
+        <textarea
           id="message"
-          type="text"
           {...register("message")}
-          className="rounded-md text-xl p-2"
+          className="rounded-md text-xl p-2 h-[150px] resize-none"
           placeholder="Berätta vad ni behöver hjälp med..."
         />
         {errors?.message && (
@@ -114,9 +113,9 @@ export default function Form() {
 
         <button
           type="submit"
-          className="text-3xl bg-gray-300 p-2 rounded-md max-w-[10rem]"
+          className="text-2xl bg-[#ea580c] text-color-[#002444] p-2 rounded-md w-auto mt-5"
         >
-          Submit
+          Skicka Meddelande
         </button>
       </form>
     </>
