@@ -6,6 +6,8 @@ import SessionProvider from "./SessionProvider";
 import Navbar from "./components/Navbar";
 import Appbar from "./components/Appbar";
 import { Providers } from "./providers";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Providers>
           <Appbar />
           {children}
+          <ToastContainer />
         </Providers>
       </body>
     </html>

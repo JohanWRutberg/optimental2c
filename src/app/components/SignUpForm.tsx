@@ -8,8 +8,8 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { passwordStrength } from "check-password-strength";
 import PasswordStrength from "./PasswordStrength";
-/* import { registerUser } from "@/lib/actions/authActions"; */
-/* import { toast } from "react-toastify"; */
+import { registerUser } from "@/lib/actions/authActions";
+import { toast } from "react-toastify";
 
 const FormSchema = z
   .object({
@@ -61,12 +61,23 @@ const SignUpForm = () => {
   const [isVisiblePass, setIsVisiblePass] = useState(false);
 
   useEffect(() => {
-    setPassStrength(passwordStrength(watch().password).id);
+    const password = watch().password;
+    if (password) {
+      setPassStrength(passwordStrength(password).id);
+    }
   }, [watch().password]);
+
   const toggleVisiblePass = () => setIsVisiblePass((prev) => !prev);
 
   const saveUser: SubmitHandler<InputType> = async (data) => {
-    console.log({ data });
+    const { accepted, confirmPassword, ...user } = data;
+    try {
+      const result = await registerUser(user);
+      toast.success("Successfully registered User");
+    } catch (error) {
+      toast.error("Something went wrong!");
+      console.error(error);
+    }
   };
 
   return (
@@ -105,8 +116,8 @@ const SignUpForm = () => {
         startContent={<PhoneIcon className="w-4" />}
       />
       <Input
-        errorMessage={errors.password?.message}
-        isInvalid={!!errors.password}
+        errorMessage={errors?.password?.message}
+        isInvalid={!!errors?.password}
         {...register("password")}
         className="col-span-2"
         label="Password"
@@ -120,6 +131,7 @@ const SignUpForm = () => {
           )
         }
       />
+
       <PasswordStrength passStrength={passStrength} />
       <Input
         errorMessage={errors.confirmPassword?.message}

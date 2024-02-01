@@ -28,6 +28,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.50.0",
     "react-icons": "^5.0.1",
+    "react-toastify": "^10.0.4",
     "validator": "^13.11.0",
     "zod": "^3.22.4"
   },
