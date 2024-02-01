@@ -10,7 +10,12 @@ function Login() {
     <div>
       <ul style={{ color: `${textColor}` }} className="hidden md:flex text cursor-pointer">
         <li onClick={() => signIn("google")} className="p-4 hover:text-[#EA5709]">
-          <LuLogIn className="text-4xl animate-pulse" />
+          Login with Google
+          {/* <LuLogIn className="text-4xl animate-pulse" /> */}
+        </li>
+        <li onClick={() => signIn("google")} className="p-4 hover:text-[#EA5709]">
+          Sign up
+          {/* <LuLogIn className="text-4xl animate-pulse" /> */}
         </li>
       </ul>
     </div>

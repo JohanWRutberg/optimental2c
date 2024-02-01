@@ -1,9 +1,11 @@
-import { authOptions } from "../../pages/api/auth/[...nextauth]";
+import { authOptions } from "../app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import SessionProvider from "./SessionProvider";
 import Navbar from "./components/Navbar";
+import Appbar from "./components/Appbar";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,12 +13,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const session = await getServerSession(authOptions);
   console.log(session);
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={inter.className}>
-        <SessionProvider session={session}>
+        {/* <SessionProvider session={session}>
           <Navbar />
           <div className="bg-[#343541]">{children}</div>
-        </SessionProvider>
+        </SessionProvider> */}
+        <Providers>
+          <Appbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

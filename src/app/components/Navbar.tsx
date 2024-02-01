@@ -23,8 +23,8 @@ const Navbar = () => {
   useEffect(() => {
     const changeColor = () => {
       if (window.scrollY >= 800) {
-        setColor("#ffffff");
-        setTextColor("#000000");
+        setColor("#00325e");
+        setTextColor("#ffffff");
       } else {
         setColor("transparent");
         setTextColor("#ffffff");
@@ -32,7 +32,6 @@ const Navbar = () => {
     };
     window.addEventListener("scroll", changeColor);
 
-    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener("scroll", changeColor);
     };
@@ -72,18 +71,19 @@ const Navbar = () => {
           <>
             <div className="text p-4 flex flex-row items-center space-x-5">
               <img
+                onClick={() => signOut()}
                 src={session?.user?.image!}
                 alt="Profile pic"
                 className="h-12 w-12 rounded-full cursor-pointer mx-auto hover:opacity-50"
               />
-              <LuLogOut
-                onClick={() => signOut()}
-                className="text-4xl hover:text-[#EA5709] cursor-pointer animate-pulse"
-              />
+              <div>Inloggad</div>
+
+              {/* <LuLogOut className="text-4xl hover:text-[#EA5709] cursor-pointer animate-pulse" /> */}
             </div>
           </>
         )}
 
+        {/* Start Mobile nav */}
         <div onClick={handleNav} className="block md:hidden z-10">
           {nav ? (
             <AiOutlineClose size={20} style={{ color: `${textColor}` }} />
