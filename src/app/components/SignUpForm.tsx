@@ -15,32 +15,32 @@ const FormSchema = z
   .object({
     firstName: z
       .string()
-      .min(2, "First name must be atleast 2 characters")
-      .max(45, "First name must be less than 45 characters")
-      .regex(new RegExp("^[a-zA-Z]+$"), "No special character allowed!"),
+      .min(2, "Förnamnet måste innehålla minst 2 bokstäver")
+      .max(45, "Förnamnet får innehålla max 45 bokstäver")
+      .regex(new RegExp("^[a-zA-Z]+$"), "Inga specialtecken är tillåtna!"),
     lastName: z
       .string()
-      .min(2, "Last name must be atleast 2 characters")
-      .max(45, "Last name must be less than 45 characters")
-      .regex(new RegExp("^[a-zA-Z]+$"), "No special character allowed!"),
-    email: z.string().email("Please enter a valid email address"),
-    phone: z.string().refine(validator.isMobilePhone, "Please enter a valid phone number!"),
+      .min(2, "Efternamnet måste innehålla minst 2 bokstäver")
+      .max(45, "Efternamnet får innehålla max 45 bokstäver")
+      .regex(new RegExp("^[a-zA-Z]+$"), "Inga specialtecken är tillåtna!"),
+    email: z.string().email("Ange en giltig epost adress!"),
+    phone: z.string().refine(validator.isMobilePhone, "Ange ett giltigt telefonnummer!"),
     password: z
       .string()
-      .min(6, "Password must be at least 6 characters ")
-      .max(50, "Password must be less than 50 characters"),
+      .min(6, "Lösenordet måste innehålla minst 6 tecken")
+      .max(50, "Lösenordet måste innehålla färre än 50 tecken"),
     confirmPassword: z
       .string()
-      .min(6, "Password must be at least 6 characters ")
-      .max(50, "Password must be less than 50 characters"),
+      .min(6, "Lösenordet måste innehålla minst 6 tecken")
+      .max(50, "Lösenordet måste innehålla färre än 50 tecken"),
     accepted: z.literal(true, {
       errorMap: () => ({
-        message: "Please accept all terms"
+        message: "Acceptera alla villkor"
       })
     })
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Password and confirm password doesn't match!",
+    message: "Lösenorden matchar inte varandra!",
     path: ["confirmPassword"]
   });
 
@@ -73,9 +73,9 @@ const SignUpForm = () => {
     const { accepted, confirmPassword, ...user } = data;
     try {
       const result = await registerUser(user);
-      toast.success("Successfully registered User");
+      toast.success("Registrering av användare lyckades");
     } catch (error) {
-      toast.error("Something went wrong!");
+      toast.error("Någonting gick fel!");
       console.error(error);
     }
   };
@@ -89,14 +89,14 @@ const SignUpForm = () => {
         errorMessage={errors.firstName?.message}
         isInvalid={!!errors.firstName} /* !! Omvandlar till Boolean */
         {...register("firstName")}
-        label="First Name"
+        label="Förnamn"
         startContent={<UserIcon className="w-4" />}
       />
       <Input
         errorMessage={errors.lastName?.message}
         isInvalid={!!errors.lastName}
         {...register("lastName")}
-        label="Last Name"
+        label="Efternamn"
         startContent={<UserIcon className="w-4" />}
       />
       <Input
@@ -104,7 +104,7 @@ const SignUpForm = () => {
         isInvalid={!!errors.email}
         {...register("email")}
         className="col-span-2"
-        label="Email"
+        label="Epost"
         startContent={<EnvelopeIcon className="w-4" />}
       />
       <Input
@@ -112,7 +112,7 @@ const SignUpForm = () => {
         isInvalid={!!errors.phone}
         {...register("phone")}
         className="col-span-2"
-        label="Phone"
+        label="Telefon"
         startContent={<PhoneIcon className="w-4" />}
       />
       <Input
@@ -120,7 +120,7 @@ const SignUpForm = () => {
         isInvalid={!!errors?.password}
         {...register("password")}
         className="col-span-2"
-        label="Password"
+        label="Lösenord"
         type={isVisiblePass ? "text" : "password"}
         startContent={<KeyIcon className="w-4" />}
         endContent={
@@ -138,7 +138,7 @@ const SignUpForm = () => {
         isInvalid={!!errors.confirmPassword}
         {...register("confirmPassword")}
         className="col-span-2"
-        label="Confirm Password"
+        label="Repetera Lösenord"
         type={isVisiblePass ? "text" : "password"}
         startContent={<KeyIcon className="w-4" />}
       />
@@ -147,14 +147,14 @@ const SignUpForm = () => {
         name="accepted"
         render={({ field }) => (
           <Checkbox onChange={field.onChange} onBlur={field.onBlur} className="col-span-2">
-            I Accept The <Link href="/terms">Terms</Link>
+            Jag godkänner <Link href="/terms">Villkoren</Link>
           </Checkbox>
         )}
       />
       {!!errors.accepted && <p className="text-red-500">{errors.accepted.message}</p>}
       <div className="flex justify-center col-span-2">
         <Button className="w-48" color="primary" type="submit">
-          Submit
+          Registrera
         </Button>
       </div>
     </form>

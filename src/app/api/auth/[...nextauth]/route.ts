@@ -4,8 +4,13 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import * as bcrypt from "bcrypt";
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
+import { User } from "@prisma/client";
 
 export const authOptions: AuthOptions = {
+  pages: {
+    signIn: "/auth/signin"
+  },
+
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -17,12 +22,12 @@ export const authOptions: AuthOptions = {
 
       credentials: {
         username: {
-          label: "User Name",
+          label: "Användarnamn",
           type: "text",
-          placeholder: "Your User Name"
+          placeholder: "Ditt användarnamn"
         },
         password: {
-          label: "Password",
+          label: "Lösenord",
           type: "password"
         }
       },
@@ -32,20 +37,32 @@ export const authOptions: AuthOptions = {
             email: credentials?.username
           }
         });
-        if (!user) throw new Error("User Name or Password is not correct");
+        if (!user) throw new Error("Användarnamn eller Lösenord är ej korrekt!");
 
         /* This is Naive Way of Comparing The Password */
         /* const isPasswordCorrect = credentials?.password === user.password; */
-        if (!credentials?.password) throw new Error("Please Provide Your Password");
+        if (!credentials?.password) throw new Error("Fyll i ditt lösenord");
         const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
 
-        if (!isPasswordCorrect) throw new Error("User or Password is Not Correct!");
+        if (!isPasswordCorrect) throw new Error("Användarnamn eller Lösenord är ej korrekt!");
 
         const { password, ...userWithoutPass } = user;
         return userWithoutPass;
       }
     })
-  ]
+  ],
+
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) token.user = user as User;
+      return token;
+    },
+
+    async session({ token, session }) {
+      session.user = token.user;
+      return session;
+    }
+  }
 };
 
 const handler = NextAuth(authOptions);
