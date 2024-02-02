@@ -1,16 +1,10 @@
 import { z } from "zod";
 
 export const BasicUserSchema = z.object({
-  firstName: z.string().trim().min(2, { message: "minst två bokstäver" }),
-  lastName: z
-    .string()
-    .trim()
-    .min(2, { message: "Efternamn måste vara minst två bokstäver" }),
+  firstName: z.string().trim().min(2, { message: "Minst två bokstäver" }),
+  lastName: z.string().trim().min(2, { message: "Minst två bokstäver" }),
   email: z.string().email().trim().toLowerCase(),
-  city: z
-    .string()
-    .trim()
-    .min(2, { message: "Stadens måste vara minst två bokstäver" }),
+  city: z.string().trim().min(2, { message: "Minst två bokstäver" }),
   // phone: z
   //   .string()
   //   .min(10, { message: "Phone numbers are a minimum of 10 digits" }),

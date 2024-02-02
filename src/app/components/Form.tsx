@@ -3,8 +3,9 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { UserFormWithAddress } from "../models/User";
 import { BasicUserSchema } from "../models/User";
-import { Toaster, toast } from "sonner";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+
+import { FaPaperPlane } from "react-icons/fa";
+import { sendEmail } from "@/actions/sendEmail";
 
 export default function Form() {
   const {
@@ -18,16 +19,11 @@ export default function Form() {
   });
 
   const onSubmit: SubmitHandler<UserFormWithAddress> = (data) => {
-    console.log(data);
-    toast.success("Meddelandet har skickats", {
-      duration: 5000,
-      icon: <MagnifyingGlassIcon />,
-    });
+    sendEmail(data);
   };
 
   return (
-    <div className="relative">
-      <Toaster richColors className="absolute top-0 " />;
+    <div className="">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col md:max-w-3xl gap-2 mx-auto max-w-xs"
@@ -41,11 +37,11 @@ export default function Form() {
               id="firstName"
               type="text"
               {...register("firstName")}
-              className="rounded-md text-xl p-2"
+              className="form-style"
               placeholder="Kjell"
             />
             {errors.firstName && (
-              <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start">
+              <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start -mt-4 ">
                 {errors.firstName?.message}
               </p>
             )}
@@ -58,11 +54,11 @@ export default function Form() {
               id="lastName"
               type="text"
               {...register("lastName")}
-              className="rounded-md text-xl p-2 bg-blue-800"
+              className="form-style"
               placeholder="Kriminell"
             />
             {errors.lastName && (
-              <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start">
+              <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start -mt-4">
                 {errors.lastName?.message}
               </p>
             )}
@@ -76,11 +72,11 @@ export default function Form() {
           id="email"
           type="email"
           {...register("email")}
-          className="rounded-md text-xl p-2"
+          className="form-style"
           placeholder="kenta.kofot@hotmail.com"
         />
         {errors.email && (
-          <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start">
+          <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start -mt-4">
             {errors.email?.message}
           </p>
         )}
@@ -92,13 +88,15 @@ export default function Form() {
           id="city"
           type="text"
           {...register("city")}
-          className="rounded-md text-xl p-2"
+          className="form-style"
           placeholder="Stockholm"
         />
         {errors?.city && (
-          <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start">
-            {errors.city?.message}
-          </p>
+          <div className="relaive">
+            <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start  -mt-4">
+              {errors.city?.message}
+            </p>
+          </div>
         )}
 
         <label htmlFor="message" className="text-xl text-white">
@@ -107,20 +105,21 @@ export default function Form() {
         <textarea
           id="message"
           {...register("message")}
-          className="rounded-md text-xl p-2 h-[150px] resize-none"
+          className="form-style h-[150px] resize-none"
           placeholder="Berätta vad ni behöver hjälp med..."
         />
         {errors?.message && (
-          <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start">
+          <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start -mt-4">
             {errors.message?.message}
           </p>
         )}
 
         <button
           type="submit"
-          className="text-2xl bg-[#ea580c] text-color-[#002444] p-2 rounded-md w-auto mt-5"
+          className="group text-2xl bg-[#ea580c] text-color-[#002444] p-2 rounded-md w-auto mt-5 flex items-center justify-center gap-5 focus:scale-110 hover:scale-110 active:scale-105 transition-all"
         >
           Skicka Meddelande
+          <FaPaperPlane className="text-md opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
         </button>
       </form>
     </div>
