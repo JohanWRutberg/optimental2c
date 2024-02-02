@@ -20,7 +20,7 @@ const page = () => {
         <Form />
       </div>
 
-      <div className="bg-[#002444]  h-[20vh]"> </div>
+      <div className="bg-[#002444]  h-[10vh]"> </div>
     </>
   );
 };

@@ -3,6 +3,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { UserFormWithAddress } from "../models/User";
 import { BasicUserSchema } from "../models/User";
+import { Toaster, toast } from "sonner";
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 export default function Form() {
   const {
@@ -16,13 +18,16 @@ export default function Form() {
   });
 
   const onSubmit: SubmitHandler<UserFormWithAddress> = (data) => {
-    console.log(data.firstName);
     console.log(data);
-    console.log(isValid);
+    toast.success("Meddelandet har skickats", {
+      duration: 5000,
+      icon: <MagnifyingGlassIcon />,
+    });
   };
 
   return (
-    <>
+    <div className="relative">
+      <Toaster richColors className="absolute top-0 " />;
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col md:max-w-3xl gap-2 mx-auto max-w-xs"
@@ -53,7 +58,7 @@ export default function Form() {
               id="lastName"
               type="text"
               {...register("lastName")}
-              className="rounded-md text-xl p-2"
+              className="rounded-md text-xl p-2 bg-blue-800"
               placeholder="Kriminell"
             />
             {errors.lastName && (
@@ -118,6 +123,6 @@ export default function Form() {
           Skicka Meddelande
         </button>
       </form>
-    </>
+    </div>
   );
 }
