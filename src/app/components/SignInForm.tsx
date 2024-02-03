@@ -40,10 +40,16 @@ const SignInForm = (props: Props) => {
       username: data.email,
       password: data.password
     });
+
     if (!result?.ok) {
-      toast.error("Fel lösen lixom! Försök igen.");
+      if (result?.error === "Vänligen verifiera din e-postadress först!") {
+        toast.error("Vänligen verifiera din e-postadress först!");
+      } else {
+        toast.error("Fel e-postadress eller lösenord! Försök igen.");
+      }
       return;
     }
+
     toast.success("Välkommen till Optimental. Din hjärnskrynklare i natten!");
     router.push(props.callbackUrl ? props.callbackUrl : "/");
   };
