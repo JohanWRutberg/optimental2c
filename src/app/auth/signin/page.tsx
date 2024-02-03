@@ -13,7 +13,7 @@ const SigninPage = ({ searchParams }: Props) => {
   return (
     <div className="flex items-center justify-center flex-col">
       <SignInForm callbackUrl={searchParams.callbackUrl} />
-      <Link href={"/auth/forgotPass"}>Glömt ditt lösenord?</Link>
+      <Link href={"/auth/forgotPassword"}>Glömt ditt lösenord?</Link>
     </div>
   );
 };
