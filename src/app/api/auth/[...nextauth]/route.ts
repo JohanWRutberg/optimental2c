@@ -4,7 +4,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import * as bcrypt from "bcrypt";
 import NextAuth from "next-auth/next";
-
 import { use } from "react";
 import { User } from "@prisma/client";
 

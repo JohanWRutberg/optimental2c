@@ -35,8 +35,11 @@ const ForgotPasswordPage = () => {
     }
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 items-center">
-      <form className="flex flex-col gap-2 p-2 border m-2 rounded-md shadow" onSubmit={handleSubmit(submitRequest)}>
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center mt-[5%]">
+      <form
+        className="flex flex-col gap-2 p-4 border w-[80%] border-orange-600 m-2 rounded-md shadow place-self-center"
+        onSubmit={handleSubmit(submitRequest)}
+      >
         <div className="text-center p-2">Ange din E-postadress för återställning av lösenord.</div>
         <Input
           label="E-post"
@@ -53,7 +56,7 @@ const ForgotPasswordPage = () => {
         alt="Glömt Lösenord"
         width={500}
         height={500}
-        className="col-span-2 place-self-center"
+        className="col-span-1 place-self-center"
       />
     </div>
   );
