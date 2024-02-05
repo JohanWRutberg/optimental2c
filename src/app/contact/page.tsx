@@ -6,13 +6,15 @@ const page = () => {
     <>
       <div className="bg-style bg-center bg-cover  flex flex-col items-center pt-52 ">
         <div>
-          <h1 className="text-white text-5xl">
+          <title>Contact</title>
+          <h1 className="text-white text-5xl ">
             {" "}
-            <span className="text-9xl text-[#EA5709]">K</span>ontakta oss
+            <span className="text-9xl text-[#EA5709] bg-[#002444]">K</span>
+            ontakta oss
           </h1>
         </div>
         <div>
-          <h1 className="text-white p-4 text-center text-2xl mb-32">
+          <h1 className="text-white p-4 text-center text-2xl mb-32 ">
             Var god fyll i formuläret nedan så återkommer vi så snabbt vi kan
           </h1>
         </div>
