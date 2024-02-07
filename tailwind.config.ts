@@ -14,6 +14,10 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "bg-img": "url(/hero1.jpg)",
       },
+      colors: {
+        "primary-orange": "var(--primary-orange)",
+        "primary-blue": "var(--primary-blue)",
+      },
     },
   },
   plugins: [],

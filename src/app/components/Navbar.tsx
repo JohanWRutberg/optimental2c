@@ -22,7 +22,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const changeColor = () => {
-      if (window.scrollY >= 500) {
+      if (window.scrollY >= 50) {
         setColor("#002444");
         setTextColor("#ffffff");
       } else {
@@ -80,11 +80,11 @@ const Navbar = () => {
         ) : (
           <>
             <div className="text p-4 flex flex-row items-center space-x-5">
-              <Image
+              {/* <Image
                 src={session?.user?.image!}
                 alt="Profile pic"
                 className="h-12 w-12 rounded-full cursor-pointer mx-auto hover:opacity-50"
-              />
+              /> */}
               <LuLogOut
                 onClick={() => signOut()}
                 className="text-4xl hover:text-[#EA5709] cursor-pointer animate-pulse trans-hover"
