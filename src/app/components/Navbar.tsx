@@ -47,13 +47,13 @@ const Navbar = () => {
         <Link href="/">
           <div className="flex items-center">
             <Image src={logo} width={80} height={80} alt="" />
-            <h1
+            {/* <h1
               style={{ color: `${textColor}` }}
               className="font-bold text-2xl uppercase ml-4"
             >
               <span className="text-[#EA5709]">Opti</span>
               <span className="text-[#0097ff]">mental</span>
-            </h1>
+            </h1> */}
           </div>
         </Link>
 

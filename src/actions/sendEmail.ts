@@ -10,7 +10,7 @@ export const sendEmail = async (data: UserFormWithAddress) => {
 
   resend.emails.send({
     from: "onboarding@resend.dev",
-    to: "johrut@gmail.com",
+    to: "nordin.zerhouni@gmail.com",
     subject: "Message from contact form",
     text: `namn:${data.firstName} ${data.lastName} | "email":${data.email} | stad: ${data.city} | meddelande:${data.message}`,
   });
