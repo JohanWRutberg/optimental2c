@@ -83,8 +83,9 @@ const SignUpForm = () => {
   return (
     <form
       onSubmit={handleSubmit(saveUser)}
-      className="grid grid-cols-2 ml-10 gap-3 p-2 place-self-stretch shadow border rounded-md"
+      className="grid grid-cols-2 gap-3 p-2 place-self-stretch shadow border border-orange-500 rounded-md"
     >
+      {/* max-w-[1240px] m-auto flex justify-between items-center */}
       <Input
         errorMessage={errors.firstName?.message}
         isInvalid={!!errors.firstName} /* !! Omvandlar till Boolean */

@@ -27,7 +27,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/components/Hero.tsx",
-    "src/app/components/Navbar.tsx"
+    "src/app/components/Navbar.tsx",
+    "next.config.js"
   ],
   "exclude": ["node_modules"]
 }

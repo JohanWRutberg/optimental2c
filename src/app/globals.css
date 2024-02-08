@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -7,15 +7,48 @@ html {
   font-family: "Raleway", sans-serif;
 }
 
-.bg-style {
-  background-image: linear-gradient(
-      to top,
-      #00325e,
-      #00325e,
-      rgba(0, 0, 0, 0) 50%
-    ),
-    url(../../public/Hero1.jpg);
+.custom-img {
+  background-image: url(../../public/Hero1.jpg);
   background-repeat: no-repeat;
 
   height: 100vh;
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-orange: #ea5709;
+  --primary-blue: #002444;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Raleway", sans-serif;
+}
+
+.custom-img {
+  background-image: url(../../public/Hero1.jpg);
+  background-repeat: no-repeat;
+
+  height: 100vh;
+}
+
+.bg-style {
+  background-image: linear-gradient(to top, #002444, #002444, rgba(0, 0, 0, 0)), url(../../public/Hero1.jpg);
+  background-repeat: no-repeat;
+}
+
+.trans-hover {
+  transition: 0.2s ease-in-out all;
+}
+
+.form-style {
+  color: white;
+  background-color: #01539b;
+  border-radius: 0.375rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  padding: 0.5rem;
 }

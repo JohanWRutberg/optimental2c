@@ -1,7 +1,6 @@
 "use server";
 
 import { User } from "@prisma/client";
-
 import * as bcrypt from "bcrypt";
 import { compileActivationTemplate, compileResetPassTemplate, sendMail } from "../mail";
 import { signJwt, verifyJwt } from "../jwt";

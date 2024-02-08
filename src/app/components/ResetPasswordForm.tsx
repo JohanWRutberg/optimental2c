@@ -62,7 +62,10 @@ const ResetPasswordForm = ({ jwtUserId }: Props) => {
     }
   };
   return (
-    <form onSubmit={handleSubmit(resetPass)} className="flex flex-col gap-2 p-2 m-2 border rounded-md shadow">
+    <form
+      onSubmit={handleSubmit(resetPass)}
+      className="flex flex-col gap-2 p-5 border border-orange-500 rounded-md shadow overflow-hidden w-[50%] mt-[2%]"
+    >
       <div className="text-center p-2">Återställ ditt lösenord</div>
       <Input
         type={visiblePass ? "text" : "password"}

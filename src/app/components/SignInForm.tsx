@@ -3,12 +3,14 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/react/20/solid";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input } from "@nextui-org/react";
 import { signIn } from "next-auth/react";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { z } from "zod";
+import NextAuthProviders from "./NextAuthProviders";
 
 interface Props {
   callbackUrl?: string;
@@ -40,16 +42,10 @@ const SignInForm = (props: Props) => {
       username: data.email,
       password: data.password
     });
-
     if (!result?.ok) {
-      if (result?.error === "Vänligen verifiera din e-postadress först!") {
-        toast.error("Vänligen verifiera din e-postadress först!");
-      } else {
-        toast.error("Fel e-postadress eller lösenord! Försök igen.");
-      }
+      toast.error(result?.error);
       return;
     }
-
     toast.success("Välkommen till Optimental. Din hjärnskrynklare i natten!");
     router.push(props.callbackUrl ? props.callbackUrl : "/");
   };
@@ -57,13 +53,13 @@ const SignInForm = (props: Props) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 border rounded-md shadow overflow-hidden w-[50%]"
+      className="flex flex-col gap-2 border border-orange-500 rounded-md shadow overflow-hidden w-[50%] mt-[10%]"
     >
       <div className="bg-gradient-to-b from-white to-slate-200 dark:from-slate-700 dark:to-slate-900 p-2 text-center">
-        Logga in formulär
+        Logga in
       </div>
       <div className="p-2 flex flex-col gap-2">
-        <Input label="Epost" {...register("email")} errorMessage={errors.email?.message} />
+        <Input label="E-post" {...register("email")} errorMessage={errors.email?.message} />
         <Input
           label="Lösenord"
           {...register("password")}
@@ -84,6 +80,7 @@ const SignInForm = (props: Props) => {
           </Button>
         </div>
       </div>
+      <NextAuthProviders />
     </form>
   );
 };

@@ -1,22 +1,39 @@
-import { Navbar, NavbarContent, NavbarItem, Button } from "@nextui-org/react";
-import SigninButton from "./SigninButton";
-import Link from "next/link";
+"use client";
+import { useEffect, useState } from "react";
+import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/react";
+import Logo from "./Logo";
+import MenuBar from "./MenuBar";
 
 const Appbar = () => {
+  const [color, setColor] = useState("transparent");
+
+  useEffect(() => {
+    const changeColor = () => {
+      if (window.scrollY >= 50) {
+        setColor("#ffffff");
+      } else {
+        setColor("transparent");
+      }
+    };
+    window.addEventListener("scroll", changeColor);
+  }, []);
+
   return (
-    <Navbar isBordered>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link className="hover:text-sky-500 transition-colors" color="foreground" href="/">
-            Optimental
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem>
-          <SigninButton />
-        </NavbarItem>
-      </NavbarContent>
+    <Navbar className="h-20" style={{ backgroundColor: `${color}` }}>
+      <div style={{ backgroundColor: `${color}` }} className="fixed left-0 top-0 w-full z-5 ease-in duration-300">
+        <div className="max-w-[1240px] m-auto flex justify-between items-center p-0 text-white">
+          <NavbarContent className="hidden sm:flex gap-4" justify="start">
+            <NavbarItem>
+              <Logo />
+            </NavbarItem>
+          </NavbarContent>
+          <NavbarContent justify="center">
+            <NavbarItem>
+              <MenuBar />
+            </NavbarItem>
+          </NavbarContent>
+        </div>
+      </div>
     </Navbar>
   );
 };

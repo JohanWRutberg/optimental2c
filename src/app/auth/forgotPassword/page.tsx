@@ -31,11 +31,11 @@ const ForgotPasswordPage = () => {
       reset();
     } catch (e) {
       console.log(e);
-      toast.error("Någonting gick fel! Ingen e-postadress hittades!");
+      toast.error("Någonting gick fel... Ingen e-postadress hittades!");
     }
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 items-center mt-[5%]">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center mt-[5%] max-w-[1240px] m-auto">
       <form
         className="flex flex-col gap-2 p-4 border w-[80%] border-orange-600 m-2 rounded-md shadow place-self-center"
         onSubmit={handleSubmit(submitRequest)}
