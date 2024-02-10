@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const AboutHero = () => {
   return (
-    <div className="max-w-screen-2xl flex justify-center items-center gap-10 p-4 flex-col-reverse mt-40 lg:mt-0 lg:flex-row">
+    <div className="max-w-screen-2xl flex justify-center items-center gap-10 p-10 flex-col-reverse mt-40 lg:mt-0 lg:flex-row">
       <div>
         <motion.div
           className="text-lg uppercase font-semibold  tracking-[4px] text-primary-orange"
@@ -40,6 +40,10 @@ const AboutHero = () => {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </motion.p>
+        <div className="flex my-5 gap-4">
+          <button className="button-34">Kontakta mig</button>
+          <button className="button-35">Kontakta mig</button>
+        </div>
       </div>
       <div id="right" className="">
         <Profile />

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Profile = () => {
   return (
-    <div className="p-6 ">
+    <div className="p-6 md:p-0 ">
       <motion.div
         className="relative"
         initial={{ opacity: 0, x: 200 }}

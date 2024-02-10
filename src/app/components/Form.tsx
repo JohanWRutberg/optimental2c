@@ -7,12 +7,14 @@ import { BasicUserSchema } from "../models/User";
 import { FaPaperPlane } from "react-icons/fa";
 import { sendEmail } from "@/actions/sendEmail";
 
+import ReCaptcha from "./reCaptcha";
+import { useEffect, useState } from "react";
+
 export default function Form() {
   const {
     register,
     handleSubmit,
-    trigger,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<UserFormWithAddress>({
     resolver: zodResolver(BasicUserSchema),
     mode: "onChange",
@@ -20,6 +22,18 @@ export default function Form() {
 
   const onSubmit: SubmitHandler<UserFormWithAddress> = (data) => {
     sendEmail(data);
+  };
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [token, setToken] = useState("");
+  const [submitEnabled, setSubmitEnabled] = useState(false);
+
+  useEffect(() => {
+    if (token.length) {
+      setSubmitEnabled(true);
+    }
+  }, [token]);
+  const handleToken = (token: string) => {
+    setToken(token);
   };
 
   return (
@@ -113,10 +127,20 @@ export default function Form() {
             {errors.message?.message}
           </p>
         )}
-
+        <div className="flex item-center">
+          <ReCaptcha
+            siteKey={"6LeLz2wpAAAAAMPCOuyYkAk7HZ2ykeARljDDGir0"}
+            callback={handleToken}
+          />
+        </div>
         <button
+          disabled={!submitEnabled}
           type="submit"
-          className="group text-2xl bg-[#ea580c] text-color-[#002444] p-2 rounded-md w-auto mt-5 flex items-center justify-center gap-5 focus:scale-110 hover:scale-110 active:scale-105 transition-all"
+          className={`${
+            submitEnabled
+              ? "bg-[#ea580c] hover:scale-110 active:scale-105"
+              : "bg-gray-500 cursor-not-allowed"
+          }group text-2xl  text-color-[#002444] p-2 rounded-md w-auto mt-5 flex items-center justify-center gap-5   transition-all`}
         >
           Skicka Meddelande
           <FaPaperPlane className="text-md opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
