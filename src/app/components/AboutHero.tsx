@@ -16,7 +16,7 @@ const AboutHero = () => {
           Psykolog
         </motion.div>
         <motion.div
-          className="h-[2px] mb-8 bg-gray-200 border-0 dark:bg-primary-orange max-w-[680px]"
+          className="h-[2px] mb-8 border-0 bg-primary-orange max-w-[680px]"
           initial={{ opacity: 0, x: -300 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
@@ -40,10 +40,15 @@ const AboutHero = () => {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </motion.p>
-        <div className="flex my-5 gap-4">
+        <motion.div
+          className="flex my-5 gap-4"
+          initial={{ opacity: 0, y: 400 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.6 }}
+        >
           <button className="button-34">Kontakta mig</button>
-          <button className="button-35">Kontakta mig</button>
-        </div>
+          <button className="button-35">Kontakta mig @night</button>
+        </motion.div>
       </div>
       <div id="right" className="">
         <Profile />
