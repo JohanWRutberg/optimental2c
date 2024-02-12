@@ -1,6 +1,6 @@
 import { Button } from "@nextui-org/react";
-
 import { signIn } from "next-auth/react";
+import { FcGoogle } from "react-icons/fc";
 
 const NextAuthProviders = () => {
   const googleSignIn = async () => {
@@ -11,7 +11,9 @@ const NextAuthProviders = () => {
   };
   return (
     <div className="flex justify-center items-center p-4 border-t m-3">
-      <Button onClick={googleSignIn}>Logga in med Google</Button>
+      <Button onClick={googleSignIn}>
+        <FcGoogle className="w-6 h-6" /> Logga in med Google
+      </Button>
     </div>
   );
 };

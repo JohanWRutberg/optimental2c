@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/react";
 import Logo from "./Logo";
 import MenuBar from "./MenuBar";
+import SigninButton from "./SigninButton";
 
 const Appbar = () => {
   const [color, setColor] = useState("transparent");
@@ -20,9 +21,9 @@ const Appbar = () => {
 
   return (
     <Navbar className="h-20" style={{ backgroundColor: `${color}` }}>
-      <div style={{ backgroundColor: `${color}` }} className="fixed left-0 top-0 w-full z-5 ease-in duration-300">
+      <div className="fixed left-0 top-0 w-full z-5 ease-in duration-300">
         <div className="max-w-[1240px] m-auto flex justify-between items-center p-0 text-white">
-          <NavbarContent className="hidden sm:flex gap-4" justify="start">
+          <NavbarContent justify="start">
             <NavbarItem>
               <Logo />
             </NavbarItem>
@@ -30,6 +31,11 @@ const Appbar = () => {
           <NavbarContent justify="center">
             <NavbarItem>
               <MenuBar />
+            </NavbarItem>
+          </NavbarContent>
+          <NavbarContent justify="end">
+            <NavbarItem className="hidden md:flex justify-end">
+              <SigninButton />
             </NavbarItem>
           </NavbarContent>
         </div>

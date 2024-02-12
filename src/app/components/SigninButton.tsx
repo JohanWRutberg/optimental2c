@@ -10,9 +10,9 @@ const SigninButton = () => {
   const { data: session } = useSession();
   console.log(session);
   return (
-    <div className="flex flex-col items-center content-center gap-2 p-2">
+    <div className="flex-col p-4">
       {session?.user.firstName && (
-        <div className="flex flex-row items-center gap-2">
+        <div className="flex flex-row gap-3 items-center">
           <span className="relative flex h-3 w-3 justify-center">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0097ff] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-[#0097ff]"></span>
@@ -47,8 +47,8 @@ const SigninButton = () => {
           <div>
             <Image
               src={session.user?.image!}
-              width={100}
-              height={100}
+              width={500}
+              height={500}
               alt="Profile pic"
               className="h-10 w-10 rounded-full cursor-pointer mx-auto hoover:opacity-50"
             />
