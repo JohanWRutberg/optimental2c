@@ -4,10 +4,15 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import SessionProvider from "./SessionProvider";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const session = await getServerSession(authOptions);
   console.log(session);
   return (
@@ -15,7 +20,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className={inter.className}>
         <SessionProvider session={session}>
           <Navbar />
-          <div className="bg-[#343541]">{children}</div>
+          <div>{children}</div>
+          <Footer />
         </SessionProvider>
       </body>
     </html>

@@ -9,13 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "firebase": "^10.7.2",
+    "framer-motion": "^11.0.3",
     "next": "14.1.0",
     "next-auth": "^4.24.5",
     "nodemailer": "^6.9.8",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^5.0.1"
+    "react-hook-form": "^7.49.3",
+    "react-icons": "^5.0.1",
+    "resend": "^3.1.0",
+    "sonner": "^1.4.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",

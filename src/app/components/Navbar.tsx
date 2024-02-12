@@ -22,9 +22,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const changeColor = () => {
-      if (window.scrollY >= 800) {
-        setColor("#ffffff");
-        setTextColor("#000000");
+      if (window.scrollY >= 50) {
+        setColor("#002444");
+        setTextColor("#ffffff");
       } else {
         setColor("transparent");
         setTextColor("#ffffff");
@@ -39,29 +39,38 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: `${color}` }} className="fixed left-0 top-0 w-full z-10 ease-in duration-300">
+    <div
+      style={{ backgroundColor: `${color}` }}
+      className="fixed left-0 top-0 w-full z-10 ease-in duration-300"
+    >
       <div className="max-w-[1240px] m-auto flex justify-between items-center p-2 text-white">
         <Link href="/">
           <div className="flex items-center">
             <Image src={logo} width={80} height={80} alt="" />
-            <h1 style={{ color: `${textColor}` }} className="font-bold text-2xl uppercase ml-4">
+            {/* <h1
+              style={{ color: `${textColor}` }}
+              className="font-bold text-2xl uppercase ml-4"
+            >
               <span className="text-[#EA5709]">Opti</span>
               <span className="text-[#0097ff]">mental</span>
-            </h1>
+            </h1> */}
           </div>
         </Link>
 
-        <ul style={{ color: `${textColor}` }} className="hidden md:flex text cursor-pointer">
-          <li className="p-4 hover:text-[#EA5709]">
+        <ul
+          style={{ color: `${textColor}` }}
+          className="hidden md:flex text cursor-pointer"
+        >
+          <li className="p-4 hover:text-[#EA5709] trans-hover">
             <Link href="/">Hem</Link>
           </li>
-          <li className="p-4 hover:text-[#EA5709]">
+          <li className="p-4 hover:text-[#EA5709] trans-hover">
             <Link href="/#gallery">Bildspel</Link>
           </li>
-          <li className="p-4 hover:text-[#EA5709]">
+          <li className="p-4 hover:text-[#EA5709] trans-hover">
             <Link href="/about">Om mig</Link>
           </li>
-          <li className="p-4 hover:text-[#EA5709]">
+          <li className="p-4 hover:text-[#EA5709] trans-hover">
             <Link href="/contact">Kontakt</Link>
           </li>
         </ul>
@@ -71,14 +80,14 @@ const Navbar = () => {
         ) : (
           <>
             <div className="text p-4 flex flex-row items-center space-x-5">
-              <img
+              {/* <Image
                 src={session?.user?.image!}
                 alt="Profile pic"
                 className="h-12 w-12 rounded-full cursor-pointer mx-auto hover:opacity-50"
-              />
+              /> */}
               <LuLogOut
                 onClick={() => signOut()}
-                className="text-4xl hover:text-[#EA5709] cursor-pointer animate-pulse"
+                className="text-4xl hover:text-[#EA5709] cursor-pointer animate-pulse trans-hover"
               />
             </div>
           </>

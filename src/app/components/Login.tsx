@@ -8,8 +8,14 @@ function Login() {
   const [textColor, setTextColor] = useState("white");
   return (
     <div>
-      <ul style={{ color: `${textColor}` }} className="hidden md:flex text cursor-pointer">
-        <li onClick={() => signIn("google")} className="p-4 hover:text-[#EA5709]">
+      <ul
+        style={{ color: `${textColor}` }}
+        className="hidden md:flex text cursor-pointer"
+      >
+        <li
+          onClick={() => signIn("google")}
+          className="p-4 hover:text-[#EA5709]"
+        >
           <LuLogIn className="text-4xl animate-pulse" />
         </li>
       </ul>
