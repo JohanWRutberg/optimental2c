@@ -17,6 +17,88 @@
 html {
   scroll-behavior: smooth;
   font-family: "Raleway", sans-serif;
+  background-color: var(--primary-blue);
+}
+
+/*  Parralax  */
+
+.animation,
+.animation_layer {
+  height: 1000px;
+}
+
+.animation {
+  display: block;
+  position: relative;
+  z-index: 0;
+}
+
+.animation_layer {
+  background-position: bottom center;
+  background-size: auto 1038px;
+  background-repeat: repeat-x;
+  width: 100%;
+  position: absolute;
+}
+.animation_layer.parallax {
+  position: fixed;
+}
+
+#layer0 {
+  background-image: url("../../public/Herolayers/Herolayer0.png");
+  top: -30rem;
+}
+
+#layer1 {
+  background-image: url("../../public/Herolayers/Herolayer1.png");
+  top: 6rem;
+}
+
+#layer2 {
+  background-image: url("../../public/Herolayers/Herolayer2.png");
+  top: 18rem;
+}
+
+#layer3 {
+  background-image: url("../../public/Herolayers/Herolayer3.png");
+  top: 38rem;
+}
+
+/* Textblock */
+
+#textblock {
+  background-color: var(--primary-blue);
+  height: 100vh;
+}
+
+#textblock-container {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 70px;
+}
+
+#textblock-title {
+  color: red;
+  font-size: 35px;
+  font-weight: 600;
+  font-family: "Helvetica Neue";
+}
+
+#textblock-content {
+  color: red;
+  font-size: 20px;
+}
+
+/*  End of parralax  */
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  max-width: 100%;
+  padding: 0.3rem;
 }
 
 .bg-style {
@@ -83,10 +165,23 @@ html {
 
   color: #ffffff;
   cursor: pointer;
-  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
-    NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
-    EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
-    "Noto Sans", sans-serif;
+  font-family:
+    Inter,
+    Helvetica,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    NotoColorEmoji,
+    "Noto Color Emoji",
+    "Segoe UI Symbol",
+    "Android Emoji",
+    EmojiSymbols,
+    -apple-system,
+    system-ui,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    "Noto Sans",
+    sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -113,10 +208,23 @@ html {
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
-  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
-    NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
-    EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
-    "Noto Sans", sans-serif;
+  font-family:
+    Inter,
+    Helvetica,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    NotoColorEmoji,
+    "Noto Color Emoji",
+    "Segoe UI Symbol",
+    "Android Emoji",
+    EmojiSymbols,
+    -apple-system,
+    system-ui,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    "Noto Sans",
+    sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;

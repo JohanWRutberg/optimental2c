@@ -19,6 +19,8 @@
     "bcrypt": "^5.1.1",
     "check-password-strength": "^2.0.7",
     "clsx-tailwind-merge": "^1.0.4",
+    "@react-spring/parallax": "^9.7.3",
+    "compass-mixins": "^0.12.12",
     "firebase": "^10.7.2",
     "framer-motion": "^11.0.3",
     "handlebars": "^4.7.8",
