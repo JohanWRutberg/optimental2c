@@ -1,7 +1,7 @@
 "use server";
 
 import { User } from "@prisma/client";
-import * as bcrypt from "bcrypt";
+import { hash, compare } from "bcrypt";
 import { compileActivationTemplate, compileResetPassTemplate, sendMail } from "../mail";
 import { signJwt, verifyJwt } from "../jwt";
 import { prisma } from "@/lib/prisma";
@@ -13,7 +13,7 @@ export async function registerUser(user: Omit<User, "id" | "emailVerified" | "im
       lastName: user.lastName,
       email: user.email,
       phone: user.phone,
-      password: await bcrypt.hash(user.password, 10)
+      password: await hash(user.password, 10)
     }
   });
 
@@ -90,7 +90,7 @@ export const resetPassword: ResetPasswordFucn = async (jwtUserId, password) => {
       id: userId
     },
     data: {
-      password: await bcrypt.hash(password, 10)
+      password: await hash(password, 10)
     }
   });
   if (result) return "success";

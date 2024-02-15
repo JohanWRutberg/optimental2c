@@ -1,14 +1,12 @@
-"use client";
+import React from "react";
+import AboutHero from "../components/AboutHero";
 
 const page = () => {
   return (
-    <>
-      <div className="bg-style bg-center bg-cover"></div>
-
-      <div className="bg-[#00325e] h-svh">
-        <h1>About sidan</h1>
-      </div>
-    </>
+    <div className="bg-style bg-center bg-cover h-full md:h-svh flex justify-center">
+      <AboutHero />
+    </div>
   );
 };
+
 export default page;
