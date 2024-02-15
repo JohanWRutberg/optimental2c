@@ -7,19 +7,18 @@
   --primary-blue: #002444;
 }
 
+:root {
+  --primary-orange: #ea5709;
+  --primary-blue: #002444;
+}
+
 html {
   scroll-behavior: smooth;
   font-family: "Raleway", sans-serif;
 }
 
 .bg-style {
-  background-image: linear-gradient(
-      to top,
-      #002444,
-      #002444,
-      rgba(0, 0, 0, 0) 50%
-    ),
-    url(../../public/Hero1.jpg);
+  background-image: linear-gradient(to top, #002444, #002444, rgba(0, 0, 0, 0) 50%), url(../../public/Hero1.jpg);
   background-repeat: no-repeat;
 }
 
@@ -75,9 +74,8 @@ html {
 
   color: #ffffff;
   cursor: pointer;
-  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
-    NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
-    EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji",
+    "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
     "Noto Sans", sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -100,9 +98,8 @@ html {
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
-  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
-    NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
-    EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji",
+    "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
     "Noto Sans", sans-serif;
   font-size: 16px;
   font-weight: 700;

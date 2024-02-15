@@ -27,7 +27,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/components/Hero.tsx",
-    "src/app/components/Navbar.tsx"
+    "src/app/components/Navbar.tsx",
+    "next.config.js",
+    "src/app/brainwork/page.jsx",
+    "src/app/components/Brain.jsx"
   ],
   "exclude": ["node_modules"]
 }
