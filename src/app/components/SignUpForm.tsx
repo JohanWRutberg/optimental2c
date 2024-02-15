@@ -82,11 +82,13 @@ const SignUpForm = () => {
 
   return (
     <form
+      color="primary"
       onSubmit={handleSubmit(saveUser)}
-      className="grid grid-cols-2 gap-3 p-2 place-self-stretch shadow border border-orange-500 rounded-md"
+      className="grid grid-cols-2 gap-3 p-2 m-4 place-self-stretch shadow border border-orange-500 rounded-md"
     >
       {/* max-w-[1240px] m-auto flex justify-between items-center */}
       <Input
+        color="primary"
         errorMessage={errors.firstName?.message}
         isInvalid={!!errors.firstName} /* !! Omvandlar till Boolean */
         {...register("firstName")}
@@ -94,6 +96,7 @@ const SignUpForm = () => {
         startContent={<UserIcon className="w-4" />}
       />
       <Input
+        color="primary"
         errorMessage={errors.lastName?.message}
         isInvalid={!!errors.lastName}
         {...register("lastName")}
@@ -101,6 +104,7 @@ const SignUpForm = () => {
         startContent={<UserIcon className="w-4" />}
       />
       <Input
+        color="primary"
         errorMessage={errors.email?.message}
         isInvalid={!!errors.email}
         {...register("email")}
@@ -109,6 +113,7 @@ const SignUpForm = () => {
         startContent={<EnvelopeIcon className="w-4" />}
       />
       <Input
+        color="primary"
         errorMessage={errors.phone?.message}
         isInvalid={!!errors.phone}
         {...register("phone")}
@@ -117,6 +122,7 @@ const SignUpForm = () => {
         startContent={<PhoneIcon className="w-4" />}
       />
       <Input
+        color="primary"
         errorMessage={errors?.password?.message}
         isInvalid={!!errors?.password}
         {...register("password")}
@@ -135,6 +141,7 @@ const SignUpForm = () => {
 
       <PasswordStrength passStrength={passStrength} />
       <Input
+        color="primary"
         errorMessage={errors.confirmPassword?.message}
         isInvalid={!!errors.confirmPassword}
         {...register("confirmPassword")}
@@ -147,7 +154,7 @@ const SignUpForm = () => {
         control={control}
         name="accepted"
         render={({ field }) => (
-          <Checkbox onChange={field.onChange} onBlur={field.onBlur} className="col-span-2">
+          <Checkbox color="primary" onChange={field.onChange} onBlur={field.onBlur} className="col-span-2">
             Jag godkänner <Link href="/terms">Villkoren</Link>
           </Checkbox>
         )}

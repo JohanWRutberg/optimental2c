@@ -20,7 +20,7 @@ const Appbar = () => {
   }, []);
 
   return (
-    <Navbar className="h-20" style={{ backgroundColor: `${color}` }}>
+    <Navbar className="h-20 bg-transparent" style={{ backgroundColor: `${color}` }}>
       <div className="fixed left-0 top-0 w-full z-5 ease-in duration-300">
         <div className="max-w-[1240px] m-auto flex justify-between items-center p-0 text-white">
           <NavbarContent justify="start">

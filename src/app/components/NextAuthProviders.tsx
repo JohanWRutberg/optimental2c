@@ -11,8 +11,8 @@ const NextAuthProviders = () => {
   };
   return (
     <div className="flex justify-center items-center p-4 border-t m-3">
-      <Button onClick={googleSignIn}>
-        <FcGoogle className="w-6 h-6" /> Logga in med Google
+      <Button color="primary" onClick={googleSignIn} className="bg-slate-50 text-black">
+        <FcGoogle className="w-6 h-6 bg-slate-50" /> Logga in med Google
       </Button>
     </div>
   );

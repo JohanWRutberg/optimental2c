@@ -59,8 +59,9 @@ const SignInForm = (props: Props) => {
         Logga in
       </div>
       <div className="p-2 flex flex-col gap-2">
-        <Input label="E-post" {...register("email")} errorMessage={errors.email?.message} />
+        <Input color="primary" label="E-post" {...register("email")} errorMessage={errors.email?.message} />
         <Input
+          color="primary"
           label="Lösenord"
           {...register("password")}
           type={visiblePass ? "text" : "password"}
@@ -72,10 +73,10 @@ const SignInForm = (props: Props) => {
           }
         />
         <div className="flex items-center justify-center gap-2">
-          <Button color="primary" type="submit" disabled={isSubmitting} isLoading={isSubmitting}>
+          <Button color="primary" variant="ghost" type="submit" disabled={isSubmitting} isLoading={isSubmitting}>
             {isSubmitting ? "Loggar in..." : "Logga in"}
           </Button>
-          <Button as={Link} href="/auth/signup">
+          <Button color="primary" variant="ghost" as={Link} href="/auth/signup">
             Registrera
           </Button>
         </div>

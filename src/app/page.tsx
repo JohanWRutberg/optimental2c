@@ -2,11 +2,6 @@ import Hero from "../app/components/Hero";
 import { sendMail } from "@/lib/mail";
 
 export default async function Home() {
-  /* await sendMail({
-    to: "johan.w.rutberg@gmail.com",
-    subject: "Test",
-    body: "Test - Hello World"
-  }); */
   const heading = "En Rubrik";
   const message = "Ett Meddelande";
   return (

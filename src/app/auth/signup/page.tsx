@@ -1,5 +1,7 @@
 import SignUpForm from "@/app/components/SignUpForm";
-import { Image, Link } from "@nextui-org/react";
+import Image from "next/image";
+import Link from "next/link";
+/* import { Image, Link } from "@nextui-org/react"; */
 
 const SignupPage = () => {
   return (

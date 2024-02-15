@@ -30,8 +30,10 @@ const SigninButton = () => {
       )}
       {!session && (
         <div className="flex flex-row gap-2">
-          <Button onClick={() => signIn()}>Logga In</Button>
-          <Button as={Link} href={"/auth/signup"}>
+          <Button color="primary" variant="ghost" onClick={() => signIn()}>
+            Logga In
+          </Button>
+          <Button color="primary" variant="ghost" as={Link} href={"/auth/signup"}>
             Registrera
           </Button>
         </div>
