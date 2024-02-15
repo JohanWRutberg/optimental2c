@@ -18,10 +18,10 @@ const config: Config = {
       },
       colors: {
         "primary-orange": "var(--primary-orange)",
-        "primary-blue": "var(--primary-blue)"
+        "primary-blue": "var(--primary-blue)",
         "secondary-blue": "var(--secondary-blue)",
-      }
-    }
+      },
+    },
   },
   darkMode: "class",
   plugins: [
