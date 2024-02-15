@@ -5,6 +5,7 @@
 :root {
   --primary-orange: #ea5709;
   --primary-blue: #002444;
+  --secondary-blue: #305999;
 }
 
 html {
@@ -34,6 +35,7 @@ html {
   font-size: 1.25rem /* 20px */;
   line-height: 1.75rem /* 28px */;
   padding: 0.5rem /* 8px */;
+  width: 100%;
 }
 
 .button-style {
@@ -91,6 +93,11 @@ html {
   width: fit-content;
   word-break: break-word;
   border: 0;
+  transition: 0.2s ease-in-out;
+}
+.button-35:hover {
+  scale: 1.1;
+  color: var(--primary-orange);
 }
 
 .button-34 {
@@ -116,4 +123,9 @@ html {
   width: fit-content;
   word-break: break-word;
   border: 0;
+  transition: 0.2s ease-in-out;
+}
+.button-34:hover {
+  scale: 1.1;
+  color: var(--primary-blue);
 }
