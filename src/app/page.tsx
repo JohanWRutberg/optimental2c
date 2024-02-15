@@ -1,7 +1,7 @@
-"use client";
 import Hero from "../app/components/Hero";
+import { sendMail } from "@/lib/mail";
 
-export default function Home() {
+export default async function Home() {
   const heading = "En Rubrik";
   const message = "Ett Meddelande";
   return (
