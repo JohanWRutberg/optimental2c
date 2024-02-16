@@ -10,7 +10,11 @@ import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const session = await getServerSession(authOptions);
   console.log(session);
   return (
@@ -20,7 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Appbar />
           {children}
           <ToastContainer />
-          <Footer />
+          {/* <Footer /> */}
         </Providers>
       </body>
     </html>
