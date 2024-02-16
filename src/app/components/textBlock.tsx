@@ -22,11 +22,6 @@ const TextBlock = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           cursus purus suscipit, ornare urna non, blandit urna. Integer cursus
           odio elit, interdum condimentum ex tincidunt vel. Lorem ipsum dolor
-          sit amet, consectetur adipiscing elit. Aenean luctus elit tellus, eu
-          malesuada ipsum iaculis non. Nam pellentesque mauris arcu, et interdum
-          dolor tristique ut. Phasellus nec est ut ex rutrum varius at eget
-          elit. Vivamus sed turpis enim. Praesent ut vulputate turpis. Integer
-          sit amet hendrerit diam.
         </p>
       </div>
     </div>

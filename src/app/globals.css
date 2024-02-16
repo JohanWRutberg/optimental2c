@@ -1,8 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
+En :root {
   --primary-orange: #ea5709;
   --primary-blue: #002444;
   --secondary-blue: #305999;
@@ -17,14 +16,14 @@
 html {
   scroll-behavior: smooth;
   font-family: "Raleway", sans-serif;
-  background-color: var(--primary-blue);
+  background-color: #002444;
 }
 
 /*  Parralax  */
 
 .animation,
 .animation_layer {
-  height: 1000px;
+  height: 100%;
 }
 
 .animation {
@@ -34,9 +33,9 @@ html {
 }
 
 .animation_layer {
-  background-position: bottom center;
-  background-size: auto 1038px;
-  background-repeat: repeat-x;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
   position: absolute;
 }
@@ -46,28 +45,34 @@ html {
 
 #layer0 {
   background-image: url("../../public/Herolayers/Herolayer0.png");
-  top: -30rem;
 }
 
 #layer1 {
   background-image: url("../../public/Herolayers/Herolayer1.png");
-  top: 6rem;
 }
 
 #layer2 {
   background-image: url("../../public/Herolayers/Herolayer2.png");
-  top: 18rem;
 }
 
 #layer3 {
   background-image: url("../../public/Herolayers/Herolayer3.png");
-  top: 38rem;
+}
+
+#layer4 {
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 36, 68, 1) 0%,
+      rgba(0, 36, 68, 1) 5%,
+      rgba(9, 9, 121, 0) 27%
+    ),
+    url(../../public/Herolayers/Herolayer4.png);
 }
 
 /* Textblock */
 
 #textblock {
-  background-color: var(--primary-blue);
+  background-color: primary-blue;
   height: 100vh;
 }
 
@@ -78,14 +83,13 @@ html {
 }
 
 #textblock-title {
-  color: red;
+  color: white;
   font-size: 35px;
   font-weight: 600;
-  font-family: "Helvetica Neue";
 }
 
 #textblock-content {
-  color: red;
+  color: white;
   font-size: 20px;
 }
 
