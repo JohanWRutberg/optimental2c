@@ -14,7 +14,7 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "bg-img": "url(/hero1.jpg)",
+        "bg-img": "url(/Hero1.jpg)",
       },
       colors: {
         "primary-orange": "var(--primary-orange)",
