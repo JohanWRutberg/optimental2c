@@ -1,14 +1,20 @@
 import React from "react";
 import AboutHero from "../components/about/AboutHero";
 import Mid from "../components/about/Mid";
+import { BsChevronDoubleDown } from "react-icons/bs";
+import DArrowDown from "../components/DArrowDown";
 
 const page = () => {
   return (
     <>
-      <div className="bg-style bg-center bg-cover h-4/6 md:h-svh flex justify-center flex-col items-center -mb-40">
+      <div className="bg-style bg-center bg-cover h-4/6 md:h-screen flex justify-center flex-col items-center -mt-[20%] md:-mt-[7%] ">
         <AboutHero />
+        <DArrowDown />
       </div>
-      <Mid />
+
+      <div className="flex items-center justify-center bg-secondary-blue">
+        <Mid />
+      </div>
     </>
   );
 };
