@@ -6,51 +6,56 @@ import Hero from "./Hero";
 import Footer from "./Footer";
 
 const Paralaxx = () => {
-  const heading = "Välkommen!";
-  const message = "Gå ner";
+  const message =
+    "Utforska ditt inre välmående, Vägen till självinsikt och förändring";
   return (
-    <Parallax pages={2} style={{ top: "0", left: "0" }} className="animation">
+    <Parallax pages={2} className="animation bg-secondary top-0 left-0">
       {/* Hero layer */}
-      <ParallaxLayer style={{ zIndex: 1 }} offset={0} speed={0.2}>
-        <Hero heading={heading} message={message} />
-      </ParallaxLayer>
+      <div className="">
+        <ParallaxLayer className="z-30" offset={0} speed={0.2}>
+          <Hero message={message} />
+        </ParallaxLayer>
+      </div>
 
       {/* layer 0 */}
-      <ParallaxLayer offset={0} speed={0}>
+      <ParallaxLayer className="z-0" offset={0} speed={0}>
         <div className="animation_layer parallax" id="layer0"></div>
       </ParallaxLayer>
 
       {/* layer 1 */}
-      <ParallaxLayer offset={0} speed={0.3}>
+      <ParallaxLayer className="z-10" offset={0} speed={0.3}>
         <div className="animation_layer parallax" id="layer1"></div>
       </ParallaxLayer>
 
       {/* layer 2 */}
-      <ParallaxLayer offset={0} speed={0.6}>
+      <ParallaxLayer className="z-20" offset={0} speed={0.6}>
         <div className="animation_layer parallax" id="layer2"></div>
       </ParallaxLayer>
 
       {/* Layer 3 */}
-      <ParallaxLayer offset={0} speed={0.8}>
+      <ParallaxLayer className="z-30" offset={0} speed={0.8}>
         <div className="animation_layer parallax" id="layer3"></div>
       </ParallaxLayer>
 
       {/* Layer 4 */}
-      <ParallaxLayer offset={0} speed={1.3}>
+      <ParallaxLayer className="z-40" offset={0} speed={1.3}>
         <div className="animation_layer parallax" id="layer4"></div>
       </ParallaxLayer>
 
       {/* Second page */}
-      <ParallaxLayer offset={1} speed={0.5}>
-        <TextBlock />
+      <ParallaxLayer offset={1} speed={0.9}>
+        <div className="fixed top-0 w-screen mt-5 text-ellipsis overflow-hidden">
+          <div>
+            <TextBlock />
+          </div>
+        </div>
       </ParallaxLayer>
 
-      {/* <ParallaxLayer offset={2} speed={0.5}> */}
-      {/*   <TextBlock /> */}
-      {/*   <div className="fixed bottom-0"> */}
-      {/*     <Footer /> */}
-      {/*   </div> */}
-      {/* </ParallaxLayer> */}
+      <ParallaxLayer offset={1} speed={0.2}>
+        <div className="fixed bottom-0 w-screen">
+          <Footer />
+        </div>
+      </ParallaxLayer>
     </Parallax>
   );
 };
