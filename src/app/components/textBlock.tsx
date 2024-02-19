@@ -1,6 +1,6 @@
 const TextBlock = () => {
   return (
-    <div className="center" id="textblock">
+    <div className="" id="textblock">
       <div id="textblock-container">
         <h1 id="textblock-title">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
@@ -22,6 +22,7 @@ const TextBlock = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           cursus purus suscipit, ornare urna non, blandit urna. Integer cursus
           odio elit, interdum condimentum ex tincidunt vel. Lorem ipsum dolor
+          hej
         </p>
       </div>
     </div>
