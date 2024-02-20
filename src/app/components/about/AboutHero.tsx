@@ -2,6 +2,7 @@
 import React from "react";
 import Profile from "./Profile";
 import { motion } from "framer-motion";
+import { BsChevronDoubleDown } from "react-icons/bs";
 
 const AboutHero = () => {
   return (
