@@ -3,19 +3,16 @@
 import React from "react";
 
 interface HeroProps {
-  heading?: string;
   message?: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ heading, message }) => {
+const Hero: React.FC<HeroProps> = ({ message }) => {
   return (
-    <div className="flex items-center justify-center h-screen  bg-fixed bg-center bg-cover custom-img">
+    <div className="absolute flex items-center h-screen w-screen left-24 bottom-20">
       {/* Overlay */}
-      <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/5 z-[2]" />
-      <div className="p-5 text-white z-[2] mt-[-10rem]">
-        <h2 className="text-5xl font-bold">{heading}</h2>
-        <p className="py-5 text-xl">{message}</p>
-        <button className="px-8 py-2 border">En knappjävel</button>
+      {/* <div className="absolute top-0 left-0 right-0 bottom-0" /> */}
+      <div className="p-5 text-white mt-[-10rem] w-[450px]">
+        <q className="py-5 text-2xl italic font-bold text-bold">{message}</q>
       </div>
     </div>
   );
