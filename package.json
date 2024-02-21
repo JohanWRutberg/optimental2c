@@ -21,6 +21,7 @@
     "check-password-strength": "^2.0.7",
     "clsx-tailwind-merge": "^1.0.4",
     "compass-mixins": "^0.12.12",
+    "cookies-next": "^4.1.1",
     "firebase": "^10.7.2",
     "framer-motion": "^11.0.3",
     "handlebars": "^4.7.8",

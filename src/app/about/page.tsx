@@ -7,7 +7,7 @@ import DArrowDown from "../components/DArrowDown";
 const page = () => {
   return (
     <>
-      <div className="bg-style bg-center bg-cover h-4/6 md:h-screen flex justify-center flex-col items-center -mt-[20%] md:-mt-[7%] ">
+      <div className="bg-style bg-center bg-cover h-4/6 md:h-screen flex justify-center flex-col items-center   ">
         <AboutHero />
         <DArrowDown />
       </div>
