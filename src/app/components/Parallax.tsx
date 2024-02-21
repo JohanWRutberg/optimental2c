@@ -9,7 +9,7 @@ const Paralaxx = () => {
   const message =
     "Utforska ditt inre välmående, Vägen till självinsikt och förändring";
   return (
-    <Parallax pages={2} className="animation bg-secondary top-0 left-0">
+    <Parallax pages={2} className="animation bg-secondary top-0 left-0 ">
       {/* Hero layer */}
       <div className="">
         <ParallaxLayer className="z-30" offset={0} speed={0.2}>
