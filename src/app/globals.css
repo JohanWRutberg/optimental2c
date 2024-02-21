@@ -17,7 +17,7 @@ body,
 html {
   scroll-behavior: smooth;
   font-family: "Raleway", sans-serif;
-  background-color: #002444;
+  background-color: #ff0000;
 }
 
 /*  Parralax  */
@@ -193,23 +193,4 @@ html {
 .button-34:hover {
   scale: 1.1;
   color: var(--primary-blue);
-}
-/* scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
