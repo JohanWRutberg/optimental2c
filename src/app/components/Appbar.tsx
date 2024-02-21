@@ -6,21 +6,21 @@ import MenuBar from "./MenuBar";
 import SigninButton from "./SigninButton";
 
 const Appbar = () => {
-  const [color, setColor] = useState("transparent");
+  /* const [color, setColor] = useState("transparent");
 
   useEffect(() => {
     const changeColor = () => {
       if (window.scrollY >= 50) {
-        setColor("#ffffff");
+        setColor("transparent");
       } else {
         setColor("transparent");
       }
     };
     window.addEventListener("scroll", changeColor);
-  }, []);
+  }, []); */
 
   return (
-    <Navbar className="h-20 bg-transparent" style={{ backgroundColor: `${color}` }}>
+    <Navbar className="h-20 " /*  style={{ backgroundColor: `${color}` }} */>
       <div className="fixed left-0 top-0 w-full z-5 ease-in duration-300">
         <div className="max-w-[1240px] m-auto flex justify-between items-center p-0 text-white">
           <NavbarContent justify="start">

@@ -11,7 +11,7 @@ const SigninPage = ({ searchParams }: Props) => {
   console.log({ searchParams });
 
   return (
-    <div className="flex items-center justify-center flex-col max-w-[1240px] m-auto">
+    <div className="flex items-center justify-center bg-primary-blue flex-col max-w-[1240px] m-auto">
       <SignInForm callbackUrl={searchParams.callbackUrl} />
       <Link className="mt-5" href={"/auth/forgotPassword"}>
         Glömt ditt lösenord?
