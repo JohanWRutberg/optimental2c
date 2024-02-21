@@ -13,6 +13,7 @@ En :root {
   --secondary-blue: #305999;
 }
 
+body,
 html {
   scroll-behavior: smooth;
   font-family: "Raleway", sans-serif;
@@ -133,34 +134,6 @@ html {
 .button-style {
 }
 
-/* .h1 {
-  @apply text-6xl xl:text-[72px] xl:leading-[80px] tracking-[-2px] font-bold;
-}
-
-.h2 {
-  @apply text-4xl font-bold;
-}
-
-.h3 {
-  @apply text-3xl font-bold;
-}
-
-.h4 {
-  @apply text-[22px] font-semibold;
-}
-
-.subtitle {
-  @apply text-muted-foreground text-lg mb-8 font-light;
-}
-
-.section-title {
-  @apply text-4xl font-bold relative w-max flex items-center justify-between gap-x-3 before:bg-dots_light before:dark:bg-dots_dark before:bg-no-repeat before:bg-center before:w-[24px] before:h-[24px];
-}
-
-.badge {
-  @apply z-10 w-[200px] h-[68px] bg-orange-100 dark:backdrop-blur-[44px] shadow-2xl p-4 rounded-[10px] flex items-center gap-x-4;
-} */
-
 .button-35 {
   background: #002444;
   border-radius: 999px;
@@ -169,23 +142,10 @@ html {
 
   color: #ffffff;
   cursor: pointer;
-  font-family:
-    Inter,
-    Helvetica,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    NotoColorEmoji,
-    "Noto Color Emoji",
-    "Segoe UI Symbol",
-    "Android Emoji",
-    EmojiSymbols,
-    -apple-system,
-    system-ui,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    "Noto Sans",
-    sans-serif;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
+    NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
+    EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -212,23 +172,10 @@ html {
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
-  font-family:
-    Inter,
-    Helvetica,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    NotoColorEmoji,
-    "Noto Color Emoji",
-    "Segoe UI Symbol",
-    "Android Emoji",
-    EmojiSymbols,
-    -apple-system,
-    system-ui,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    "Noto Sans",
-    sans-serif;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
+    NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
+    EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -246,4 +193,23 @@ html {
 .button-34:hover {
   scale: 1.1;
   color: var(--primary-blue);
+}
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
