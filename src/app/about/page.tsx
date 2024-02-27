@@ -9,12 +9,13 @@ const page = () => {
     <>
       <div className="bg-style bg-center bg-cover h-4/6 md:h-screen flex justify-center flex-col items-center -mt-[20%] md:-mt-[7%] ">
         <AboutHero />
-        <DArrowDown />
+        {/* <DArrowDown /> */}
       </div>
 
-      <div className="flex items-center justify-center bg-secondary-blue">
+      <div className="flex items-center justify-center bg-[url('/img/wave10.svg')]  bg-cover min-[1393px]:bg-contain bg-center p-4 -mt-[7%]">
         <Mid />
       </div>
+      <div className="h-screen w-auto bg-primary-blue"></div>
     </>
   );
 };
