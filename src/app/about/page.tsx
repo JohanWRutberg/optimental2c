@@ -12,7 +12,7 @@ const page = () => {
         {/* <DArrowDown /> */}
       </div>
 
-      <div className="flex items-center justify-center bg-[url('/img/wave10.svg')]  bg-cover min-[1393px]:bg-contain bg-center p-4 -mt-[7%]">
+      <div className="flex items-center justify-center bg-[url('/img/cbg.svg')]  bg-cover  bg-center p-4 -mt-[7%]">
         <Mid />
       </div>
       <div className="h-screen w-auto bg-primary-blue"></div>

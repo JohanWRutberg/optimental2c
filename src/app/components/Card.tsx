@@ -11,7 +11,7 @@ const Card = ({ title, imageUrl, body }: CardType) => {
   return (
     <div
       id="card-container"
-      className=" rounded-md bg-secondary-blue text-black w-[300px] overflow-hidden shadow-[0_0px_15px_-5px_rgba(0,0,0,0.7)] hover:scale-105 border-2 hover:border-2 hover:border-primary-orange transition  ease-in"
+      className=" rounded-md bg-[#fbeee0] text-black w-[300px] overflow-hidden shadow-[0_0px_15px_-5px_rgba(0,0,0,0.7)] hover:scale-105 border-2 hover:border-2 hover:border-primary-orange transition  ease-in"
     >
       <div id="img-container" className="overflow-hidden h-[200px] w-auto">
         <img className="overflow-hidden h-auto w-auto" src={imageUrl} alt="" />
