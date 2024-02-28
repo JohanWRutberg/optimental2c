@@ -11,7 +11,7 @@ const Card = ({ title, imageUrl, body }: CardType) => {
   return (
     <div
       id="card-container"
-      className=" rounded-md bg-[#fbeee0] text-black w-[300px] overflow-hidden shadow-[0_0px_15px_-5px_rgba(0,0,0,0.7)] hover:scale-105 border-2 hover:border-2 hover:border-primary-orange transition  ease-in"
+      className=" rounded-md bg-[#acd5f0] text-black w-[300px] overflow-hidden shadow-[0_0px_15px_-5px_rgba(0,0,0,0.7)] hover:scale-105 border-2 border-[#acd5f0] hover:border-2 hover:border-primary-orange transition  ease-in"
     >
       <div id="img-container" className="overflow-hidden h-[200px] w-auto">
         <img className="overflow-hidden h-auto w-auto" src={imageUrl} alt="" />
@@ -25,7 +25,7 @@ const Card = ({ title, imageUrl, body }: CardType) => {
         </div>
       </div>
       <div className="flex justify-center pb-1">
-        <button className="uppercase text-primary-blue p-2 hover:bg-primary-blue hover:text-primary-orange transition  ease-in rounded-md tracking-[2px]">
+        <button className="uppercase font-bold text-primary-blue p-2 hover:bg-secondary-blue hover:text-primary-orange transition  ease-in rounded-md tracking-[2px]">
           <a href="">Läs Mer</a>
         </button>
       </div>
