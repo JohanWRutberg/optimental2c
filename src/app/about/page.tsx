@@ -7,12 +7,14 @@ import DArrowDown from "../components/DArrowDown";
 const page = () => {
   return (
     <>
-      <div className="bg-style bg-center bg-cover h-4/6 md:h-screen flex justify-center flex-col items-center -mt-[20%] md:-mt-[7%] ">
+      <div className="bg-style bg-center bg-cover md:h-screen flex justify-center flex-col items-center -mt-[20%] md:-mt-[7%] ">
         <AboutHero />
-        {/* <DArrowDown /> */}
+      </div>
+      <div className="hidden md:flex items-center  justify-center bg-primary-blue md:-mt-[10%] pb-[200px]">
+        <DArrowDown />
       </div>
 
-      <div className="flex items-center justify-center bg-[url('/img/cbg.svg')]  bg-cover  bg-center p-4 -mt-[7%]">
+      <div className="flex items-center justify-center bg-[url('/img/cbg.svg')]  bg-cover  bg-center p-4 ">
         <Mid />
       </div>
       <div className="h-screen w-auto bg-primary-blue"></div>
@@ -21,3 +23,4 @@ const page = () => {
 };
 
 export default page;
+// -mt-[20%] md:-mt-[7%]
