@@ -20,12 +20,12 @@ const Card = ({ title, imageUrl, body }: CardType) => {
         <div className="font-extrabold text-xl pt-2 pb-4 line-clamp-1">
           <h3>{title}</h3>
         </div>
-        <div className="line-clamp-6">
+        <div className="line-clamp-6 tracking-[1px]">
           <p>{body}</p>
         </div>
       </div>
       <div className="flex justify-center pb-1">
-        <button className="uppercase font-bold text-primary-blue p-2 hover:bg-secondary-blue hover:text-primary-orange transition  ease-in rounded-md tracking-[2px]">
+        <button className="uppercase font-bold border-1 border-primary-blue text-primary-blue p-2 hover:bg-secondary-blue hover:text-primary-orange transition  ease-in rounded-md tracking-[2px]">
           <a href="">Läs Mer</a>
         </button>
       </div>
