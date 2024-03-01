@@ -7,6 +7,7 @@ import { Providers } from "./providers";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
+import CookiesConsent from "./components/CookiesConsent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default async function RootLayout({
           <Appbar />
           {children}
           <ToastContainer />
+          <CookiesConsent />
           {/* <Footer /> */}
         </Providers>
       </body>
