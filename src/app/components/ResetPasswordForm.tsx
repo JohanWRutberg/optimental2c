@@ -50,12 +50,13 @@ const ResetPasswordForm = ({ jwtUserId }: Props) => {
     return () => {
       setPassStrength(0); // Reset password strength on component unmount
     };
-  }, [watch]);
+  }, [watch().password]);
 
   const resetPass: SubmitHandler<InputType> = async (data) => {
     try {
       const result = await resetPassword(jwtUserId, data.password);
       if (result === "success") toast.success("Ditt lösenord har nu ändrats!");
+      reset();
     } catch (err) {
       toast.error("Någonting gick fel!");
       console.error(err);

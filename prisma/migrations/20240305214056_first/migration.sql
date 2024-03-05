@@ -31,10 +31,12 @@ CREATE TABLE "User" (
     "id" TEXT NOT NULL,
     "firstName" TEXT NOT NULL,
     "lastName" TEXT NOT NULL,
+    "name" TEXT,
     "password" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "emailVerified" TIMESTAMP(3),
     "phone" TEXT NOT NULL,
+    "journal" TEXT,
     "image" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
