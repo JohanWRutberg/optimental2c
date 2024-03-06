@@ -1,14 +1,13 @@
-import Hero from "../app/components/Hero";
-import { sendMail } from "@/lib/mail";
-import Parallax from "./components/Parallax";
+import Hero from "./components/Hero";
 
 export default function Home() {
+  const message =
+    "Utforska ditt inre välmående, Vägen till självinsikt och förändring";
   return (
-    <main>
-      <Parallax />
-      {/* <div className="flex items-center justify-center">
-        <div className="h-[3000px] bg-slate-100 w-10"></div>
-      </div> */}
+    <main className="bg-[url('/img/bg.jpg')] bg-cover  h-screen bg-center">
+      <div className="bg-[#0000002f] absolute top-0 left-0 w-full h-screen z-0">
+        <Hero message={message} />
+      </div>
     </main>
   );
 }

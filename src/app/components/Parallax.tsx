@@ -1,21 +1,22 @@
 "use client";
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import TextBlock from "./textBlock";
 import Hero from "./Hero";
 import Footer from "./Footer";
+import AboutHero from "./about/AboutHero";
+import Mid from "./about/Mid";
+import DArrowDown from "./DArrowDown";
 
 const Paralaxx = () => {
   const message =
     "Utforska ditt inre välmående, Vägen till självinsikt och förändring";
   return (
-    <Parallax pages={2} className="animation bg-secondary top-0 left-0 ">
+    <Parallax pages={3} className="animation bg-secondary top-0 left-0">
+      {/*First page */}
       {/* Hero layer */}
-      <div className="">
-        <ParallaxLayer className="z-30" offset={0} speed={0.2}>
-          <Hero message={message} />
-        </ParallaxLayer>
-      </div>
+      <ParallaxLayer className="z-30" offset={0} speed={0.2}>
+        <Hero message={message} />
+      </ParallaxLayer>
 
       {/* layer 0 */}
       <ParallaxLayer className="z-0" offset={0} speed={0}>
@@ -43,15 +44,19 @@ const Paralaxx = () => {
       </ParallaxLayer>
 
       {/* Second page */}
-      <ParallaxLayer offset={1} speed={0.9}>
-        <div className="fixed top-0 w-screen mt-5 text-ellipsis overflow-hidden">
-          <div>
-            <TextBlock />
-          </div>
+      <ParallaxLayer offset={1} speed={0.5}>
+        <div className="h-4/6 md:h-screen flex justify-center flex-col items-center ">
+          <AboutHero />
+          <DArrowDown />
+        </div>
+
+        <div className="flex items-center justify-center bg-secondary-blue">
+          <Mid />
         </div>
       </ParallaxLayer>
 
-      <ParallaxLayer offset={1} speed={0.2}>
+      {/* Third page */}
+      <ParallaxLayer offset={2} speed={0.2}>
         <div className="fixed bottom-0 w-screen">
           <Footer />
         </div>
