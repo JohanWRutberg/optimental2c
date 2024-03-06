@@ -74,6 +74,7 @@ const SignUpForm = () => {
     try {
       const result = await registerUser(user);
       toast.success("Registrering av användare lyckades");
+      reset();
     } catch (error) {
       toast.error("Någonting gick fel!");
       console.error(error);

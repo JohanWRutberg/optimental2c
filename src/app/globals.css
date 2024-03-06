@@ -17,6 +17,7 @@ body,
 html {
   scroll-behavior: smooth;
   font-family: "Raleway", sans-serif;
+  /* background-color: #ff0000; */
 }
 
 /*  Parralax  */
@@ -56,12 +57,7 @@ html {
 }
 
 #layer4 {
-  background-image: linear-gradient(
-      to top,
-      rgba(0, 36, 68, 1) 0%,
-      rgba(0, 36, 68, 1) 5%,
-      rgba(9, 9, 121, 0) 27%
-    ),
+  background-image: linear-gradient(to top, rgba(0, 36, 68, 1) 0%, rgba(0, 36, 68, 1) 5%, rgba(9, 9, 121, 0) 27%),
     url(../../public/Herolayers/Herolayer4.png);
 }
 
@@ -102,13 +98,7 @@ html {
 }
 
 .bg-style {
-  background-image: linear-gradient(
-      to top,
-      #002444,
-      #002444,
-      rgba(0, 0, 0, 0) 50%
-    ),
-    url(../../public/Hero1.jpg);
+  background-image: linear-gradient(to top, #002444, #002444, rgba(0, 0, 0, 0) 50%), url(../../public/Hero1.jpg);
   background-repeat: no-repeat;
 }
 
@@ -137,6 +127,7 @@ html {
 
   color: #ffffff;
   cursor: pointer;
+
   font-family:
     Inter,
     Helvetica,
@@ -180,6 +171,7 @@ html {
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
+
   font-family:
     Inter,
     Helvetica,

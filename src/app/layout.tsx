@@ -11,15 +11,11 @@ import CookiesConsent from "./components/CookiesConsent";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions);
   console.log(session);
   return (
-    <html lang="en" className="dark text-foreground bg-background">
+    <html lang="en" className="bg-primary-blue dark text-foreground bg-background">
       <body className={inter.className}>
         <Providers>
           <Appbar />

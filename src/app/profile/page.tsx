@@ -9,15 +9,16 @@ const ProfilePage = async () => {
   /* if (!session || !session.user) redirect("/auth/signin"); */
   console.log(user);
   return (
-    <div>
+    <div className="flex items-center justify-center bg-primary-blue flex-col mt-[10vh] max-w-[1240px] m-auto">
       <Image height={80} width={80} src={user?.image ?? ""} alt={user?.firstName ?? ""} className="rounded-full" />
       <div className="grid grid-cols-4 gap-y-4">
-        <p>Förnamn:</p>{" "}
+        <p>Namn:</p>{" "}
         <p className="col-span-3">
           {user?.firstName} {user?.lastName} {user?.name}
         </p>
         <p>Telefon:</p> <p className="col-span-3">{user?.phone}</p>
-        <p>E-postadress:</p> <p className="col-span-3">{user?.email}</p>
+        <p>E-post:</p> <p className="col-span-3">{user?.email}</p>
+        <p>Journal:</p> <p className="col-span-3">{user?.journal}</p>
       </div>
     </div>
   );
