@@ -22,11 +22,6 @@ html {
 
 /*  Parralax  */
 
-.animation,
-.animation_layer {
-  height: 100%;
-}
-
 .animation {
   display: block;
   position: relative;
@@ -38,6 +33,7 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
+  height: 100%;
   position: absolute;
 }
 .animation_layer.parallax {
@@ -142,6 +138,7 @@ html {
 
   color: #ffffff;
   cursor: pointer;
+
   font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
     NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
     EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
@@ -172,6 +169,7 @@ html {
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
+
   font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
     NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
     EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
