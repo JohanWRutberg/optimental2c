@@ -12,27 +12,39 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ message }) => {
   const { data: session } = useSession();
   return (
-    <div className="absolute flex flex-col items-center justify-center h-screen w-screen bottom-20">
-      {/* Overlay */}
-      {/* <div className="absolute top-0 left-0 right-0 bottom-0" /> */}
-      <div className="p-5 text-white mt-[-10rem] w-[450px]">
-        <q className="py-5 text-2xl italic font-bold text-bold">{message}</q>
+    <>
+      <div className="absolute flex items-center justify-center h-screen w-screen bottom-20">
+        <div className="p-5 text-white mt-[-10rem] w-[450px]">
+          <q className="py-5 text-2xl italic font-bold text-bold">{message}</q>
+        </div>
       </div>
-      <div className="flex gap-8">
+      <div className="flex flex-row items-end h-screen w-screen p-5 gap-4">
         {!session ? (
-          <Button color="primary" onClick={() => signIn()}>
+          <Button
+            className="flex-grow"
+            color="primary"
+            variant="ghost"
+            onClick={() => signIn()}
+          >
             Logga In
           </Button>
         ) : (
-          <Button color="primary" onClick={() => signOut()}>
+          <Button
+            className="flex-grow"
+            color="primary"
+            variant="ghost"
+            onClick={() => signOut()}
+          >
             Logga ut
           </Button>
         )}
-        <Link href="/contact">
-          <Button color="primary">Kontakta oss!</Button>
-        </Link>
+        <Button className="flex-grow" color="primary" variant="ghost">
+          <Link className="flex-grow" href="/contact">
+            Kontakta oss!
+          </Link>
+        </Button>
       </div>
-    </div>
+    </>
   );
 };
 
