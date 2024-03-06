@@ -1,0 +1,13 @@
+
+APP PASSWORD FRÅN GOOGLE
+qhrp ngcd ofcf fejj
+
+
+var transport = nodemailer.createTransport({
+  host: "sandbox.smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "54a8b6a2ce6810",
+    pass: "2052c4a49d9151"
+  }
+});
