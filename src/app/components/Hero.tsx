@@ -19,9 +19,6 @@ const Hero: React.FC<HeroProps> = ({ message }) => {
         <q className="py-5 text-2xl italic font-bold text-bold">{message}</q>
       </div>
       <div className="flex gap-8">
-        <Link href="/contact">
-          <Button color="primary">Kontakta oss!</Button>
-        </Link>
         {!session ? (
           <Button color="primary" onClick={() => signIn()}>
             Logga In
@@ -31,6 +28,9 @@ const Hero: React.FC<HeroProps> = ({ message }) => {
             Logga ut
           </Button>
         )}
+        <Link href="/contact">
+          <Button color="primary">Kontakta oss!</Button>
+        </Link>
       </div>
     </div>
   );
