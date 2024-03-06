@@ -23,7 +23,7 @@ const ProfilePage = async () => {
         <div className="grid grid-cols-4 gap-y-4">
           <p>Förnamn:</p>{" "}
           <p className="col-span-3">
-            {user?.firstName} {user?.lastName} {user?.email}
+            {user?.firstName} {user?.lastName}
           </p>
           <p>Telefon:</p> <p className="col-span-3">{user?.phone}</p>
           <p>E-postadress:</p> <p className="col-span-3">{user?.email}</p>
