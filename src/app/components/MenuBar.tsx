@@ -14,7 +14,7 @@ const MenuBar = () => {
   useEffect(() => {
     const changeColor = () => {
       if (window.scrollY >= 50) {
-        setTextColor("#000000");
+        setTextColor("#ffffff");
       } else {
         setTextColor("#ffffff");
       }
@@ -28,13 +28,16 @@ const MenuBar = () => {
 
   return (
     <>
-      <div className="hidden md:flex md:text-white">
+      <div className="hidden lg:flex md:text-white">
         <ul className="flex flex-row align-middle items-center justify-center">
-          <li className="p-3 hover:text-[#EA5709]">
+          {/* <li className="p-3 hover:text-[#EA5709]">
             <Link href="/">Hem</Link>
-          </li>
+          </li> */}
           <li className="p-4 hover:text-[#EA5709]">
             <Link href="/profile">Profil</Link>
+          </li>
+          <li className="p-4 hover:text-[#EA5709]">
+            <Link href="/admin">Admin</Link>
           </li>
           <li className="p-4 hover:text-[#EA5709]">
             <Link href="/about">Om mig</Link>
@@ -49,18 +52,18 @@ const MenuBar = () => {
           </li>
         </div> */}
       </div>
-      <div onClick={handleNav} className="block md:hidden z-50 absolute top-0 right-0 p-5 cursor-pointer">
+      <div onClick={handleNav} className="block lg:hidden z-50 absolute top-0 right-0 p-5 cursor-pointer">
         {nav ? <div></div> : <AiOutlineMenu size={35} style={{ color: `${textColor}` }} />}
       </div>
 
       <div
         className={
           nav
-            ? "md:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black/90 text-center ease-in duration-300 backdrop-filter backdrop-blur bg-opacity-30 z-10"
-            : "md:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black/90 text-center ease-in duration-300 backdrop-filter backdrop-blur bg-opacity-30 z-10"
+            ? "lg:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black/90 text-center ease-in duration-300 backdrop-filter backdrop-blur bg-opacity-30 z-10"
+            : "lg:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black/90 text-center ease-in duration-300 backdrop-filter backdrop-blur bg-opacity-30 z-10"
         }
       >
-        <div onClick={handleNav} className="block md:hidden z-50 absolute top-0 right-0 p-5 cursor-pointer">
+        <div onClick={handleNav} className="block lg:hidden z-50 absolute top-0 right-0 p-5 cursor-pointer">
           <AiOutlineClose size={35} style={{ color: `${textColor}` }} />
         </div>
 
@@ -68,11 +71,14 @@ const MenuBar = () => {
           <li className="p-4">
             <Image className="mb-20" src={Logo} width={200} height={200} alt="" />
           </li>
-          <li className="p-4 hover:text-[#EA5709]">
+          {/* <li className="p-3 hover:text-[#EA5709]">
             <Link href="/">Hem</Link>
-          </li>
+          </li> */}
           <li className="p-4 hover:text-[#EA5709]">
             <Link href="/profile">Profil</Link>
+          </li>
+          <li className="p-4 hover:text-[#EA5709]">
+            <Link href="/admin">Admin</Link>
           </li>
           <li className="p-4 hover:text-[#EA5709]">
             <Link href="/about">Om mig</Link>

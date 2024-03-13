@@ -1,5 +1,7 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
+import React from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Card from "../components/Card";
 
@@ -11,22 +13,27 @@ const ProfilePage = async () => {
 
   console.log(user?.image);
   return (
-    <div className="bg-style bg-center bg-cover md:h-screen flex justify-center flex-col items-center  ">
-      <div>
+    <div className="flex items-center justify-center mt-40">
+      <div className="flex bg-sky-700 max-w-4xl w-4xl justify-center items-center p-8">
         <Image
-          height={80}
-          width={80}
+          height={100}
+          width={100}
           src={user?.image ?? ""}
-          alt={user?.firstName ?? ""}
-          className="rounded-full"
+          alt={"|;-)"}
+          /* {user?.firstName ?? ""} */ className="rounded-full"
         />
-        <div className="grid grid-cols-4 gap-y-4">
-          <p>Förnamn:</p>{" "}
-          <p className="col-span-3">
-            {user?.firstName} {user?.lastName}
+        <div className="bg-sky-700 text-slate-100 p-2 rounded shadow grid grid-cols-2  max-w-4xl w-4xl">
+          {/* <Image height={80} width={80} src={user?.image ?? ""} alt={user?.firstName ?? ""} className="rounded-full" /> */}
+          <p>Namn:</p>
+          <p>
+            {session?.user.name} {session?.user.firstName} {session?.user.lastName}
           </p>
-          <p>Telefon:</p> <p className="col-span-3">{user?.phone}</p>
-          <p>E-postadress:</p> <p className="col-span-3">{user?.email}</p>
+          <p>Roll:</p>
+          <p>{session?.user.role}</p>
+          <p>Epost:</p>
+          <p>{session?.user.email}</p>
+          <p>Journal:</p>
+          <p>{session?.user.journal}</p>
         </div>
       </div>
     </div>
@@ -34,3 +41,21 @@ const ProfilePage = async () => {
 };
 
 export default ProfilePage;
+
+{
+  /* <div className="bg-style bg-center bg-cover h-screen flex justify-center flex-col items-center">
+      <div className="border max-w-4xl w-4xl">
+        <Image height={80} width={80} src={user?.image ?? ""} alt={user?.firstName ?? ""} className="rounded-full" />
+        <div className="grid grid-cols-4 gap-y-4 border">
+          <p>Roll:</p> <p className="col-span-3">{user?.role}</p>
+          <p>Namn:</p>{" "}
+          <p className="col-span-3">
+            {user?.firstName} {user?.lastName} {user?.name}
+          </p>
+          <p>Telefon:</p> <p className="col-span-3">{user?.phone}</p>
+          <p>E-post:</p> <p className="col-span-3">{user?.email}</p>
+          <p>Journal:</p> <p className="col-span-3">{user?.journal}</p>
+        </div>
+      </div>
+    </div> */
+}

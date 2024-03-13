@@ -11,7 +11,7 @@ const SigninButton = () => {
   console.log(session);
   return (
     <div className="flex-col p-4">
-      {session?.user.firstName && (
+      {session && session?.user.firstName && (
         <div className="flex flex-row gap-3 items-center">
           <span className="relative flex h-3 w-3 justify-center">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0097ff] opacity-75"></span>
@@ -46,15 +46,19 @@ const SigninButton = () => {
               <span className="relative inline-flex rounded-full h-3 w-3 bg-[#0097ff]"></span>
             </span>
           </div>
+
           <div>
-            <Image
-              src={session.user?.image!}
-              width={500}
-              height={500}
-              alt="Profile pic"
-              className="h-10 w-10 rounded-full cursor-pointer mx-auto hoover:opacity-50"
-            />
+            <Link href={"/profile"}>
+              <Image
+                src={session.user?.image!}
+                width={500}
+                height={500}
+                alt="Profile pic"
+                className="h-10 w-10 rounded-full cursor-pointer mx-auto hoover:opacity-50"
+              />
+            </Link>
           </div>
+
           <div>
             <Link className="text-[#0097ff] hover:text-sky-300 transition-colors" href={"/api/auth/signout"}>
               <LuLogOut className="text-2xl" />
