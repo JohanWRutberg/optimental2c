@@ -39,10 +39,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div
-      style={{ backgroundColor: `${color}` }}
-      className="fixed left-0 top-0 w-full z-10 ease-in duration-300"
-    >
+    <div style={{ backgroundColor: `${color}` }} className="fixed left-0 top-0 w-full z-10 ease-in duration-300">
       <div className="max-w-[1240px] m-auto flex justify-between items-center p-2 text-white">
         <Link href="/">
           <div className="flex items-center">
@@ -57,10 +54,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <ul
-          style={{ color: `${textColor}` }}
-          className="hidden md:flex text cursor-pointer"
-        >
+        <ul style={{ color: `${textColor}` }} className="hidden lg:flex text cursor-pointer">
           <li className="p-4 hover:text-[#EA5709] trans-hover">
             <Link href="/">Hem</Link>
           </li>
@@ -93,7 +87,7 @@ const Navbar = () => {
           </>
         )}
 
-        <div onClick={handleNav} className="block md:hidden z-10">
+        <div onClick={handleNav} className="block lg:hidden z-10">
           {nav ? (
             <AiOutlineClose size={20} style={{ color: `${textColor}` }} />
           ) : (
@@ -104,8 +98,8 @@ const Navbar = () => {
         <div
           className={
             nav
-              ? "md:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black/70 text-center ease-in duration-300 backdrop-filter backdrop-blur bg-opacity-30"
-              : "md:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black/70 text-center ease-in duration-300 backdrop-filter backdrop-blur bg-opacity-30"
+              ? "lg:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black/70 text-center ease-in duration-300 backdrop-filter backdrop-blur bg-opacity-30"
+              : "lg:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black/70 text-center ease-in duration-300 backdrop-filter backdrop-blur bg-opacity-30"
           }
         >
           <ul className="flex flex-col justify-center">
