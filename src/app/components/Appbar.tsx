@@ -34,7 +34,7 @@ const Appbar = () => {
             </NavbarItem>
           </NavbarContent>
           <NavbarContent justify="end">
-            <NavbarItem className="hidden md:flex justify-end">
+            <NavbarItem className="hidden lg:flex justify-end">
               <SigninButton />
             </NavbarItem>
           </NavbarContent>

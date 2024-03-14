@@ -1,15 +1,31 @@
-import { NextRequest, NextResponse } from "next/server";
+import { withAuth, NextRequestWithAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server";
 
-export { default } from "next-auth/middleware";
+export default withAuth(
+  // `withAuth` augments your `Request` with the user's token.
+  function middleware(request: NextRequestWithAuth) {
+    // console.log(request.nextUrl.pathname)
+    // console.log(request.nextauth.token)
 
-// export function middleware(req: NextRequest) {
-//   console.log("mw run");
-//   console.log("request", req.nextUrl.pathname);
+    if (request.nextUrl.pathname.startsWith("/admin") && request.nextauth.token?.role !== "ADMIN") {
+      return NextResponse.rewrite(new URL("/denied", request.url));
+    }
 
-//   return NextResponse.next();
-// }
+    if (
+      request.nextUrl.pathname.startsWith("/client") &&
+      request.nextauth.token?.role !== "admin" &&
+      request.nextauth.token?.role !== "manager"
+    ) {
+      return NextResponse.rewrite(new URL("/denied", request.url));
+    }
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => !!token
+    }
+  }
+);
 
-export const config = {
-  // Skyddade sidor
-  matcher: ["/profile", "/admin/:path*"],
-};
+// Applies next-auth only to matching routes - can be regex
+// Ref: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
+export const config = { matcher: ["/admin", "/client", "/profile", "/admin/:path*"] };

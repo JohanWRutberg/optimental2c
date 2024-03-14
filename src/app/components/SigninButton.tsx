@@ -17,9 +17,14 @@ const SigninButton = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0097ff] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-[#0097ff]"></span>
           </span>
+          {/* <Link href={"/profile"}>
+            <span className="text-[#EA5709] hover:text-sky-300">
+              {`${session.user.firstName}`} {`${session.user.lastName}`} {`${session.user.name}`}
+            </span>
+          </Link> */}
           <Link href={"/profile"}>
             <span className="text-[#EA5709] hover:text-sky-300">
-              {`${session.user.firstName}`} {`${session.user.lastName}`}
+              {session.user.firstName || ""} {session.user.lastName || ""} {session.user.name || ""}
             </span>
           </Link>
 
