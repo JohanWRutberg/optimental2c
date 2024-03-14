@@ -21,24 +21,22 @@ const Hero: React.FC<HeroProps> = ({ message }) => {
       <div className="flex flex-row items-end h-screen w-screen p-5 gap-4">
         {!session ? (
           <Button
-            className="flex-grow"
+            className="flex-grow h-16 text-xl"
             color="primary"
-            variant="ghost"
             onClick={() => signIn()}
           >
             Logga In
           </Button>
         ) : (
           <Button
-            className="flex-grow"
+            className="flex-grow h-16 text-xl"
             color="primary"
-            variant="ghost"
             onClick={() => signOut()}
           >
             Logga ut
           </Button>
         )}
-        <Button className="flex-grow" color="primary" variant="ghost">
+        <Button className="flex-grow h-16 text-xl" color="primary">
           <Link className="flex-grow" href="/contact">
             Kontakta oss!
           </Link>
