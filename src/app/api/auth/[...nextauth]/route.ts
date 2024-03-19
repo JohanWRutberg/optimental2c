@@ -60,7 +60,7 @@ export const authOptions: AuthOptions = {
 
         if (!isPasswordCorrect) throw new Error("Användarnamn eller Lösenord är ej korrekt!");
 
-        if (!user.emailVerified) throw new Error("Vänligen verifiera din epost adress först!");
+        if (!user.emailVerified) throw new Error("Vänligen verifiera din e-post adress först!");
 
         const { password, ...userWithoutPass } = user;
         return userWithoutPass;
@@ -79,7 +79,7 @@ export const authOptions: AuthOptions = {
     }, */
 
     async session({ token, session }) {
-      if (session?.user) session.user.role = token.role;
+      if (session?.user.firstName) session.user.role = token.role;
       return session;
     }
 
