@@ -1,21 +1,24 @@
 "use client";
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import Hero from "./Hero";
 import Footer from "./Footer";
 import AboutHero from "./about/AboutHero";
 import Mid from "./about/Mid";
 import DArrowDown from "./DArrowDown";
+import Reveal from "./Reveal";
 
 const Paralaxx = () => {
-  const message =
-    "Utforska ditt inre välmående, Vägen till självinsikt och förändring";
   return (
-    <Parallax pages={3} className="animation bg-secondary top-0 left-0">
+    <Parallax pages={2.2} className="animation bg-secondary top-0 left-0">
       {/*First page */}
       {/* Hero layer */}
-      <ParallaxLayer className="z-30" offset={0} speed={0.2}>
-        <Hero message={message} />
+      <ParallaxLayer className="z-50" offset={0} speed={0.9} factor={1.2}>
+        <div className="md:h-screen flex justify-center flex-col items-center  ">
+          <AboutHero />
+        </div>
+        <div className="md:flex items-center  justify-center  md:-mt-[10%] pb-[200px]">
+          <DArrowDown />
+        </div>
       </ParallaxLayer>
 
       {/* layer 0 */}
@@ -44,19 +47,19 @@ const Paralaxx = () => {
       </ParallaxLayer>
 
       {/* Second page */}
-      <ParallaxLayer offset={1} speed={0.5}>
-        <div className="h-4/6 md:h-screen flex justify-center flex-col items-center ">
-          <AboutHero />
-          <DArrowDown />
-        </div>
-
-        <div className="flex items-center justify-center bg-secondary-blue">
-          <Mid />
-        </div>
+      <ParallaxLayer offset={0.9} speed={0.5} factor={1}>
+        <Reveal>
+          <div className="flex items-center justify-center bg-[url('/img/cbg.svg')]  bg-cover  bg-center p-4">
+            <Mid />
+          </div>
+        </Reveal>
+        {/* <div className="fixed bottom-0 w-screen"> */}
+        {/*   <Footer /> */}
+        {/* </div> */}
       </ParallaxLayer>
 
       {/* Third page */}
-      <ParallaxLayer offset={2} speed={0.2}>
+      <ParallaxLayer offset={1.2} speed={0.2}>
         <div className="fixed bottom-0 w-screen">
           <Footer />
         </div>
