@@ -11,22 +11,22 @@ const SigninButton = () => {
   console.log(session);
   return (
     <div className="flex-col p-4">
-      {session?.user.firstName && (
+      {session && session?.user && (
         <div className="flex flex-row gap-3 items-center">
           <span className="relative flex h-3 w-3 justify-center">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0097ff] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-[#0097ff]"></span>
           </span>
-          {/* <Link href={"/profile"}>
+          <Link href={"/profile"}>
             <span className="text-[#EA5709] hover:text-sky-300">
               {`${session.user.firstName}`} {`${session.user.lastName}`} {`${session.user.name}`}
             </span>
-          </Link> */}
-          <Link href={"/profile"}>
+          </Link>
+          {/* <Link href={"/profile"}>
             <span className="text-[#EA5709] hover:text-sky-300">
               {session.user.firstName || ""} {session.user.lastName || ""} {session.user.name || ""}
             </span>
-          </Link>
+          </Link> */}
 
           <Link className="text-[#0097ff] hover:text-sky-300 transition-colors" href={"/api/auth/signout"}>
             <LuLogOut className="text-2xl" />

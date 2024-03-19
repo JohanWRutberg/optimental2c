@@ -23,7 +23,7 @@ const FormSchema = z
       .min(2, "Efternamnet måste innehålla minst 2 bokstäver")
       .max(45, "Efternamnet får innehålla max 45 bokstäver")
       .regex(new RegExp("^[a-zA-Z]+$"), "Inga specialtecken är tillåtna!"),
-    email: z.string().email("Ange en giltig epost adress!"),
+    email: z.string().email("Ange en giltig e-post adress!"),
     phone: z.string().refine(validator.isMobilePhone, "Ange ett giltigt telefonnummer!"),
     password: z
       .string()
@@ -110,7 +110,7 @@ const SignUpForm = () => {
         isInvalid={!!errors.email}
         {...register("email")}
         className="col-span-2"
-        label="Epost"
+        label="E-post"
         startContent={<EnvelopeIcon className="w-4" />}
       />
       <Input

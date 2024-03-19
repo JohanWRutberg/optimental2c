@@ -17,7 +17,7 @@ interface Props {
 }
 
 const FormSchema = z.object({
-  email: z.string().email("Ange en korrekt epost adress"),
+  email: z.string().email("Ange en korrekt e-post adress"),
   password: z.string({
     required_error: "Ange ditt lösenord"
   })
@@ -53,7 +53,7 @@ const SignInForm = (props: Props) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 border border-orange-500 rounded-md shadow overflow-hidden w-[50%] mt-[10%]"
+      className="flex flex-col gap-2 border border-orange-500 rounded-md shadow overflow-hidden w-[50%]"
     >
       <div className="bg-gradient-to-b from-white to-slate-200 dark:from-slate-700 dark:to-slate-900 p-2 text-center">
         Logga in
