@@ -3,7 +3,7 @@ import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import * as bcrypt from "bcrypt";
-import NextAuth from "next-auth/next";
+import NextAuth from "next-auth";
 import { use } from "react";
 import { User } from "@prisma/client";
 
@@ -70,23 +70,22 @@ export const authOptions: AuthOptions = {
 
   callbacks: {
     async jwt({ token, user }) {
-      if (user) token.role = user.role;
+      if (user) {
+        token.role = user.role;
+        token.user = user as User;
+      }
       return token;
     },
-    /* async jwt({ token, user }) {
-      if (user) token.user = user as User;
-      return token;
-    }, */
 
     async session({ token, session }) {
+      console.log("session", { token, session });
       if (session?.user.firstName) session.user.role = token.role;
+      if (token?.user?.firstName) session.user.firstName = token.user.firstName;
+      if (token?.user?.lastName) session.user.lastName = token.user.lastName;
+      if (token?.user?.role) session.user.role = token.user.role;
+      if (token?.user?.journal) session.user.journal = token.user.journal;
       return session;
     }
-
-    /* async session({ token, session }) {
-      session.user = token.user;
-      return session;
-    } */
   }
 };
 
