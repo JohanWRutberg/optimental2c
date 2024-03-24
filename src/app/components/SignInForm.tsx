@@ -46,7 +46,7 @@ const SignInForm = (props: Props) => {
       toast.error(result?.error);
       return;
     }
-    toast.success("Välkommen till Optimental. Din hjärnskrynklare i natten!");
+    toast.success("Välkommen till Optimental.");
     router.push(props.callbackUrl ? props.callbackUrl : "/");
   };
 

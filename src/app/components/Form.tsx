@@ -15,10 +15,10 @@ export default function Form() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors, isValid }
   } = useForm<UserFormWithAddress>({
     resolver: zodResolver(BasicUserSchema),
-    mode: "onChange",
+    mode: "onChange"
   });
 
   const onSubmit: SubmitHandler<UserFormWithAddress> = (data) => {
@@ -44,9 +44,7 @@ export default function Form() {
       {isSubmitted ? (
         <div className="p-6 md:p-0 flex flex-col items-center h-full">
           <div className="">
-            <h1 className="text-white text-3xl p-56">
-              Ditt medelande är skickat
-            </h1>
+            <h1 className="text-white text-3xl p-56">Ditt medelande är skickat</h1>
           </div>
           <div>
             <button className="button-34">Hem</button>
@@ -60,7 +58,7 @@ export default function Form() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
-            Var god fyll i formuläret nedan så återkommer vi så snabbt vi kan
+            Var god fyll i formuläret nedan så återkommer jag så snabbt jag kan
           </motion.h1>
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -118,21 +116,13 @@ export default function Form() {
               placeholder="kenta.kofot@hotmail.com"
             />
             {errors.email && (
-              <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start -mt-4">
-                {errors.email?.message}
-              </p>
+              <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start -mt-4">{errors.email?.message}</p>
             )}
 
             <label htmlFor="city" className="text-xl text-white">
               Stad
             </label>
-            <input
-              id="city"
-              type="text"
-              {...register("city")}
-              className="form-style -mt-1"
-              placeholder="Stockholm"
-            />
+            <input id="city" type="text" {...register("city")} className="form-style -mt-1" placeholder="Stockholm" />
             {errors?.city && (
               <div className="relaive">
                 <p className="bg-[#002444] text-[#ea580c] italic  rounded-md self-start  -mt-4">
@@ -156,18 +146,13 @@ export default function Form() {
               </p>
             )}
             <div className="flex item-center">
-              <ReCaptcha
-                siteKey={"6LeLz2wpAAAAAMPCOuyYkAk7HZ2ykeARljDDGir0"}
-                callback={handleToken}
-              />
+              <ReCaptcha siteKey={"6LeLz2wpAAAAAMPCOuyYkAk7HZ2ykeARljDDGir0"} callback={handleToken} />
             </div>
             <button
               disabled={!isValid}
               type="submit"
               className={`${
-                isValid && submitEnabled
-                  ? "bg-[#ea580c] hover:scale-110  "
-                  : "bg-gray-500 cursor-not-allowed"
+                isValid && submitEnabled ? "bg-[#ea580c] hover:scale-110  " : "bg-gray-500 cursor-not-allowed"
               }group text-2xl  text-color-[#002444] p-2 rounded-md w-auto mt-5 flex items-center justify-center gap-5 transition-all  focus:scale-105`}
             >
               Skicka Meddelande
