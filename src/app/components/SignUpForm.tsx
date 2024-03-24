@@ -76,7 +76,7 @@ const SignUpForm = () => {
       toast.success("Registrering av användare lyckades");
       reset();
     } catch (error) {
-      toast.error("Någonting gick fel!");
+      toast.error("Användare med angiven E-post adress finns redan registrerad!");
       console.error(error);
     }
   };

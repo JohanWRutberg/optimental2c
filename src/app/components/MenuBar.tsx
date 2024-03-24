@@ -34,7 +34,7 @@ const MenuBar = () => {
             <Link href="/">Hem</Link>
           </li> */}
           <li className="p-4 hover:text-[#EA5709]">
-            <Link href="/profile">Profil</Link>
+            <Link href="#">Länk</Link>
           </li>
           <li className="p-4 hover:text-[#EA5709]">
             <Link href="/admin">Admin</Link>

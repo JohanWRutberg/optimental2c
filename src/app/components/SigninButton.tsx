@@ -47,13 +47,15 @@ const SigninButton = () => {
             </span>
           </div>
           <div>
-            <Image
-              src={session.user?.image!}
-              width={500}
-              height={500}
-              alt="Profile pic"
-              className="h-10 w-10 rounded-full cursor-pointer mx-auto hoover:opacity-50"
-            />
+            <Link href="/profile">
+              <Image
+                src={session.user?.image!}
+                width={500}
+                height={500}
+                alt="Profile pic"
+                className="h-10 w-10 rounded-full cursor-pointer mx-auto hoover:opacity-50"
+              />
+            </Link>
           </div>
           <div>
             <Link className="text-[#0097ff] hover:text-sky-300 transition-colors" href={"/api/auth/signout"}>

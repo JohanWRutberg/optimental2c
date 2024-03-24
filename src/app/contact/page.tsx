@@ -17,10 +17,8 @@ const page = () => {
           >
             <h1 className="text-white text-5xl ">
               {" "}
-              <span className="text-9xl text-primary-orange bg-primary-blue">
-                K
-              </span>
-              ontakta oss
+              <span className="text-9xl text-primary-orange bg-primary-blue">K</span>
+              ontakta mig
             </h1>
           </motion.div>
         </div>
