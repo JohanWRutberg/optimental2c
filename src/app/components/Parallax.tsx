@@ -9,14 +9,17 @@ import Reveal from "./Reveal";
 
 const Paralaxx = () => {
   return (
-    <Parallax pages={2.2} className="animation bg-secondary top-0 left-0">
+    <Parallax
+      pages={2}
+      className="animation bg-[url('/img/cbg.svg')]  bg-cover top-0 left-0"
+    >
       {/*First page */}
       {/* Hero layer */}
       <ParallaxLayer className="z-50" offset={0} speed={0.9} factor={1.2}>
         <div className="md:h-screen flex justify-center flex-col items-center  ">
           <AboutHero />
         </div>
-        <div className="md:flex items-center  justify-center  md:-mt-[10%] pb-[200px]">
+        <div className="md:flex items-center  justify-center  md:-mt-[10%] pb-[2vh]">
           <DArrowDown />
         </div>
       </ParallaxLayer>
@@ -49,7 +52,7 @@ const Paralaxx = () => {
       {/* Second page */}
       <ParallaxLayer offset={0.9} speed={0.5} factor={1}>
         <Reveal>
-          <div className="flex items-center justify-center bg-[url('/img/cbg.svg')]  bg-cover  bg-center p-4">
+          <div className="flex items-center justify-center  p-4 overflow-auto">
             <Mid />
           </div>
         </Reveal>
@@ -59,7 +62,7 @@ const Paralaxx = () => {
       </ParallaxLayer>
 
       {/* Third page */}
-      <ParallaxLayer offset={1.2} speed={0.2}>
+      <ParallaxLayer offset={1} speed={0.2}>
         <div className="fixed bottom-0 w-screen">
           <Footer />
         </div>

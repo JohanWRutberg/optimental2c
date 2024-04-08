@@ -9,13 +9,13 @@ import { User } from "@prisma/client";
 
 export const authOptions: AuthOptions = {
   pages: {
-    signIn: "/auth/signin"
+    signIn: "/auth/signin",
   },
   session: {
-    strategy: "jwt"
+    strategy: "jwt",
   },
   jwt: {
-    secret: process.env.NEXTAUTH_SECRET
+    secret: process.env.NEXTAUTH_SECRET,
   },
 
   providers: [
@@ -26,9 +26,9 @@ export const authOptions: AuthOptions = {
 
       authorization: {
         params: {
-          scope: "openid profile email"
-        }
-      }
+          scope: "openid profile email",
+        },
+      },
     }),
 
     CredentialsProvider({
@@ -38,34 +38,40 @@ export const authOptions: AuthOptions = {
         username: {
           label: "Användarnamn",
           type: "text",
-          placeholder: "Ditt användarnamn"
+          placeholder: "Ditt användarnamn",
         },
         password: {
           label: "Lösenord",
-          type: "password"
-        }
+          type: "password",
+        },
       },
       async authorize(credentials) {
         const user = await prisma.user.findUnique({
           where: {
-            email: credentials?.username
-          }
+            email: credentials?.username,
+          },
         });
 
-        if (!user) throw new Error("Användarnamn eller Lösenord är ej korrekt!");
+        if (!user)
+          throw new Error("Användarnamn eller Lösenord är ej korrekt!");
 
         /* const isPasswordCorrect = credentials?.password === user.password; */
         if (!credentials?.password) throw new Error("Ange ditt lösenord");
-        const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
+        const isPasswordCorrect = await bcrypt.compare(
+          credentials.password,
+          user.password,
+        );
 
-        if (!isPasswordCorrect) throw new Error("Användarnamn eller Lösenord är ej korrekt!");
+        if (!isPasswordCorrect)
+          throw new Error("Användarnamn eller Lösenord är ej korrekt!");
 
         if (!user.emailVerified) throw new Error("Vänligen verifiera din e-post adress först!");
 
+
         const { password, ...userWithoutPass } = user;
         return userWithoutPass;
-      }
-    })
+      },
+    }),
   ],
 
   callbacks: {
@@ -77,6 +83,7 @@ export const authOptions: AuthOptions = {
       return token;
     },
 
+
     async session({ token, session }) {
       console.log("session", { token, session });
       if (session?.user.firstName) session.user.role = token.role;
@@ -85,8 +92,10 @@ export const authOptions: AuthOptions = {
       if (token?.user?.role) session.user.role = token.user.role;
       if (token?.user?.journal) session.user.journal = token.user.journal;
       return session;
+
     }
   }
+
 };
 
 const handler = NextAuth(authOptions);
