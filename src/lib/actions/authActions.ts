@@ -13,7 +13,10 @@ export async function registerUser(user: Omit<User, "id" | "emailVerified" | "im
       lastName: user.lastName,
       email: user.email,
       phone: user.phone,
-      password: await hash(user.password, 10)
+      password: await hash(user.password, 10),
+      role: user.role,
+      journal: user.journal,
+      image: null
     }
   });
 
