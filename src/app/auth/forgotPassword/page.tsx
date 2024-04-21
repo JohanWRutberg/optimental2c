@@ -35,19 +35,23 @@ const ForgotPasswordPage = () => {
     }
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 items-center mt-[20vh] max-w-[1240px] m-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center bg-[url('/img/bg.jpg')] bg-cover h-screen bg-center justify-center">
       <form
-        className="flex flex-col gap-2 p-4 border w-[80%] border-orange-600 m-2 rounded-md shadow place-self-center"
+        className="flex flex-col gap-2 border w-[80%] border-orange-600 rounded-md shadow place-self-center bg-white bg-opacity-5 backdrop-blur-xl backdrop-filter"
         onSubmit={handleSubmit(submitRequest)}
       >
-        <div className="text-center p-2">Ange din E-post adress för återställning av lösenord.</div>
+        <div className="bg-gradient-to-b from-white to-slate-200 dark:from-slate-700 dark:to-slate-900 p-2 text-center">
+          Ange din E-post adress för återställning av lösenord.
+        </div>
         <Input
+          color="primary"
           label="E-post"
+          className="p-2"
           {...register("email")}
           startContent={<EnvelopeIcon className="w-4" />}
           errorMessage={errors.email?.message}
         />
-        <Button isLoading={isSubmitting} type="submit" disabled={isSubmitting} color="primary">
+        <Button isLoading={isSubmitting} type="submit" disabled={isSubmitting} color="primary" variant="solid">
           {isSubmitting ? "Vänligen vänta..." : "Skicka"}
         </Button>
       </form>

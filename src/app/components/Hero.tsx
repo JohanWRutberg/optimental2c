@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({ message }) => {
           <q className="py-5 text-2xl italic font-bold text-bold">{message}</q>
         </div>
       </div>
-      <div className="flex flex-row items-end h-screen w-screen p-5 gap-4">
+      {/* <div className="flex flex-row items-end h-screen w-screen p-5 gap-4">
         {!session ? (
           <Button
             className="flex-grow h-16 text-xl"
@@ -41,7 +41,7 @@ const Hero: React.FC<HeroProps> = ({ message }) => {
             Kontakta oss!
           </Link>
         </Button>
-      </div>
+      </div> */}
     </>
   );
 };

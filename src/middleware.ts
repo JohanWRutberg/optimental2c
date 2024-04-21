@@ -27,5 +27,5 @@ export default withAuth(
 );
 
 // Applies next-auth only to matching routes - can be regex
-// Ref: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
+// Protected sites with next-auth/middleware
 export const config = { matcher: ["/admin", "/client", "/profile", "/admin/:path*"] };

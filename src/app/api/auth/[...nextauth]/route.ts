@@ -65,7 +65,7 @@ export const authOptions: AuthOptions = {
         if (!isPasswordCorrect)
           throw new Error("Användarnamn eller Lösenord är ej korrekt!");
 
-        if (!user.emailVerified) throw new Error("Vänligen verifiera din e-post adress först!");
+        if (!user.emailVerified) throw new Error("Du behöver verifiera din e-post adress innan du kan logga in!");
 
 
         const { password, ...userWithoutPass } = user;

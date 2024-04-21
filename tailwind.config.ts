@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
+import { DEFAULT_CIPHERS } from "tls";
 
 const config: Config = {
   content: [
@@ -44,11 +45,11 @@ const config: Config = {
           colors: {
             primary: {
               DEFAULT: "#EA5709",
-              foreground: "#000000"
+              foreground: "#ffffff"
             },
             secondary: {
               DEFAULT: "#002444",
-              foreground: "#000000"
+              foreground: "#ffffff"
             },
             focus: "#BEF264"
           }
