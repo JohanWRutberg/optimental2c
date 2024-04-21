@@ -12,7 +12,7 @@ const ResetPasswordPage = ({ params }: Props) => {
   if (!payload)
     return <div className="flex items-center justify-center h-screen text-red-500 text-2xl">URL är inte giltig!</div>;
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center bg-[url('/img/bg.jpg')] bg-cover h-screen bg-center items-center">
       <ResetPasswordForm jwtUserId={params.jwt} />
     </div>
   );

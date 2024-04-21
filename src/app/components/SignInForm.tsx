@@ -46,14 +46,14 @@ const SignInForm = (props: Props) => {
       toast.error(result?.error);
       return;
     }
-    toast.success("Välkommen till Optimental.");
+    toast.success("Inloggningen lyckades!");
     router.push(props.callbackUrl ? props.callbackUrl : "/");
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 border border-orange-500 rounded-md shadow overflow-hidden w-[50%]"
+      className="flex flex-col mt-20 gap-2 border border-orange-500 rounded-md shadow overflow-hidden w-[40%] bg-white bg-opacity-5 backdrop-blur-xl backdrop-filter"
     >
       <div className="bg-gradient-to-b from-white to-slate-200 dark:from-slate-700 dark:to-slate-900 p-2 text-center">
         Logga in

@@ -10,6 +10,11 @@ import { passwordStrength } from "check-password-strength";
 import PasswordStrength from "./PasswordStrength";
 import { registerUser } from "@/lib/actions/authActions";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+
+interface Props {
+  callbackUrl?: string;
+}
 
 const FormSchema = z
   .object({
@@ -35,7 +40,7 @@ const FormSchema = z
       .max(50, "Lösenordet måste innehålla färre än 50 tecken"),
     accepted: z.literal(true, {
       errorMap: () => ({
-        message: "Acceptera alla villkor"
+        message: "Vänligen Acceptera villkoren!"
       })
     })
   })
@@ -46,7 +51,8 @@ const FormSchema = z
 
 type InputType = z.infer<typeof FormSchema>;
 
-const SignUpForm = () => {
+const SignUpForm = (props: Props) => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -68,26 +74,31 @@ const SignUpForm = () => {
   }, [watch().password]);
 
   const toggleVisiblePass = () => setIsVisiblePass((prev) => !prev);
-
+  const [loading, setLoading] = useState(false);
   const saveUser: SubmitHandler<InputType> = async (data) => {
     const { accepted, confirmPassword, ...user } = data;
     try {
       const result = await registerUser(user);
-      toast.success("Registrering av användare lyckades");
+
       reset();
     } catch (error) {
       toast.error("Användare med angiven E-post adress finns redan registrerad!");
       console.error(error);
     }
+    toast.success("Registrering av användare lyckades");
+    router.push(props.callbackUrl ? props.callbackUrl : "/auth/signin");
   };
 
   return (
     <form
       color="primary"
       onSubmit={handleSubmit(saveUser)}
-      className="grid grid-cols-2 gap-3 p-2 m-4 place-self-stretch shadow border border-orange-500 rounded-md"
+      className="grid grid-cols-2 my-22 gap-3 p-2 m-4 place-self-stretch shadow border border-orange-500 rounded-md bg-white bg-opacity-5 backdrop-blur-xl backdrop-filter"
     >
-      {/* max-w-[1240px] m-auto flex justify-between items-center */}
+      {/* <div className="bg-gradient-to-b from-white to-slate-200 dark:from-slate-700 dark:to-slate-900 p-2 text-center">
+        Registrera
+      </div> */}
+      {/* First name */}
       <Input
         color="primary"
         errorMessage={errors.firstName?.message}
@@ -96,6 +107,7 @@ const SignUpForm = () => {
         label="Förnamn"
         startContent={<UserIcon className="w-4" />}
       />
+      {/* Last name */}
       <Input
         color="primary"
         errorMessage={errors.lastName?.message}
@@ -104,6 +116,7 @@ const SignUpForm = () => {
         label="Efternamn"
         startContent={<UserIcon className="w-4" />}
       />
+      {/* Email */}
       <Input
         color="primary"
         errorMessage={errors.email?.message}
@@ -113,6 +126,7 @@ const SignUpForm = () => {
         label="E-post"
         startContent={<EnvelopeIcon className="w-4" />}
       />
+      {/* Phone number */}
       <Input
         color="primary"
         errorMessage={errors.phone?.message}
@@ -122,6 +136,7 @@ const SignUpForm = () => {
         label="Telefon"
         startContent={<PhoneIcon className="w-4" />}
       />
+      {/* Password */}
       <Input
         color="primary"
         errorMessage={errors?.password?.message}
@@ -141,6 +156,8 @@ const SignUpForm = () => {
       />
 
       <PasswordStrength passStrength={passStrength} />
+
+      {/* Confirm Password */}
       <Input
         color="primary"
         errorMessage={errors.confirmPassword?.message}
@@ -151,6 +168,7 @@ const SignUpForm = () => {
         type={isVisiblePass ? "text" : "password"}
         startContent={<KeyIcon className="w-4" />}
       />
+      {/* Accept Terms */}
       <Controller
         control={control}
         name="accepted"
@@ -162,8 +180,14 @@ const SignUpForm = () => {
       />
       {!!errors.accepted && <p className="text-red-500">{errors.accepted.message}</p>}
       <div className="flex justify-center col-span-2">
-        <Button className="w-48" color="primary" type="submit">
-          Registrera
+        <Button className="w-48" color="primary" type="submit" disabled={loading} variant="ghost">
+          {loading ? (
+            <>
+              <span className="pl-3">Loading...</span>
+            </>
+          ) : (
+            "Registrera"
+          )}
         </Button>
       </div>
     </form>

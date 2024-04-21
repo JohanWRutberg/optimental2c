@@ -30,7 +30,8 @@
     "src/app/components/Navbar.tsx",
     "next.config.js",
     "src/app/brainwork/page.jsx",
-    "src/app/components/Brain.jsx"
+    "src/app/components/Brain.jsx",
+    "src/app/components/Icons.jsx"
   ],
   "exclude": ["node_modules"]
 }
