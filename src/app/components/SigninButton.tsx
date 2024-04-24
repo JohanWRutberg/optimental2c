@@ -4,8 +4,6 @@ import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaUsers, FaChevronDown, FaAppleWhole, FaChartBar } from "react-icons/fa6";
-import { MdPsychology } from "react-icons/md";
-import { LuLogOut } from "react-icons/lu";
 import {
   Navbar,
   NavbarBrand,
@@ -52,20 +50,22 @@ const SigninButton = () => {
             </NavbarItem>
 
             <DropdownMenu
-              aria-label="ACME features"
+              aria-label="Profile"
               className="w-[220px]"
               itemClasses={{
                 base: "gap-4"
               }}
             >
-              {/* <DropdownItem key="user" description="" startContent={icons.user}>
-                {`${session.user.firstName}`} {`${session.user.lastName}`}
-              </DropdownItem> */}
-              <DropdownItem key="users" description="Din användar profil" startContent={icons.profile} href="/profile">
+              <DropdownItem
+                key="users"
+                description={`(${session.user.role})`}
+                startContent={icons.profile}
+                href="/profile"
+              >
                 <Link href="/profile">Profil</Link>
               </DropdownItem>
-              <DropdownItem key="logout" description="" startContent={icons.logout}>
-                <Link className="text-[#ffffff] transition-colors" href={"/api/auth/signout"}>
+              <DropdownItem key="logout" description="" startContent={icons.logout} href="/api/auth/signout">
+                <Link href="/api/auth/signout" className="text-[#ffffff] transition-colors">
                   Logga ut
                 </Link>
               </DropdownItem>
@@ -103,30 +103,22 @@ const SigninButton = () => {
             </NavbarItem>
 
             <DropdownMenu
-              aria-label="ACME features"
+              aria-label="Profile"
               className="w-[220px]"
               itemClasses={{
                 base: "gap-4"
               }}
             >
-              {/* <DropdownItem key="user" description="" startContent={icons.user}>
-                {`${session.user.firstName}`} {`${session.user.lastName}`}
-              </DropdownItem> */}
               <DropdownItem key="users" description="Din användar profil" startContent={icons.profile} href="/profile">
                 <Link href="/profile">Profil</Link>
               </DropdownItem>
-              <DropdownItem key="logout" description="" startContent={icons.logout}>
-                <Link className="text-[#ffffff] transition-colors" href={"/api/auth/signout"}>
+              <DropdownItem key="logout" description="" startContent={icons.logout} href="/api/auth/signout">
+                <Link href="/api/auth/signout" className="text-[#ffffff] transition-colors">
                   Logga ut
                 </Link>
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
-          <div>
-            {/* <Link className="text-[#0097ff] hover:text-sky-300 transition-colors" href={"/api/auth/signout"}>
-              <LuLogOut className="text-2xl" />
-            </Link> */}
-          </div>
         </div>
       )}
     </div>
