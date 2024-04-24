@@ -109,17 +109,20 @@ export default function Files() {
 
   return (
     <div className="flex flex-col bg-[url('/img/bg.jpg')] bg-cover h-screen bg-center items-center justify-center">
-      <h1 className="text-3xl font-bold mb-4">Ladda upp - Radera och Ladda ner filer</h1>
-      <input type="file" onChange={handleFileChange} />
-      <Button
-        color="primary"
-        variant="ghost"
-        onClick={handleUpload}
-        disabled={!file || uploadProgress !== null}
-        className="text-white px-4 py-2 mt-2 rounded"
-      >
-        Ladda upp
-      </Button>
+      <h1 className="text-4xl font-bold mb-4 p-4">Ladda upp, Radera och Ladda ner filer</h1>
+      <div className="flex flex-col justify-center mb-8">
+        <input type="file" onChange={handleFileChange} />
+
+        <Button
+          color="primary"
+          variant="ghost"
+          onClick={handleUpload}
+          disabled={!file || uploadProgress !== null}
+          className="text-white px-4 py-2 mt-2 rounded cursor-pointer"
+        >
+          Ladda upp
+        </Button>
+      </div>
       {uploadProgress !== null && (
         <progress value={uploadProgress} max="100" style={{ width: "50%", marginTop: "8px" }} />
       )}
@@ -140,20 +143,24 @@ export default function Files() {
               </li>
             ))}
           </ul>
-          <button
+          <Button
+            color="primary"
+            variant="solid"
             onClick={handleDownload}
             disabled={selectedFiles.length === 0}
-            className="bg-green-500 text-white px-4 py-2 mt-4 mr-2 rounded"
+            className="bg-green-800 text-white px-4 py-2 mt-4 mr-2 rounded cursor-pointer"
           >
-            Ladda ner valda fil/filer
-          </button>
-          <button
+            Hämta vald fil/filer
+          </Button>
+          <Button
+            color="primary"
+            variant="solid"
             onClick={handleDeleteSelected}
             disabled={selectedFiles.length === 0}
-            className="bg-red-500 text-white px-4 py-2 mt-2 ml-2 rounded"
+            className="bg-red-800 text-white px-4 py-2 mt-2 ml-2 rounded cursor-pointer"
           >
             Radera vald fil/filer
-          </button>
+          </Button>
         </div>
       )}
     </div>
