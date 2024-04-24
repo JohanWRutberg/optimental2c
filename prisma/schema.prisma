@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
@@ -21,8 +21,7 @@ model Account {
   scope             String?
   id_token          String?
   session_state     String?
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -48,7 +47,8 @@ model User {
   role          Role      @default(USER)
   accounts      Account[]
   sessions      Session[]
-  Booking       Booking[]
+  Booking       Booking[] @relation("Booking")
+  Bookings      Booking[] @relation("Bookings")
 }
 
 enum BookingState {
@@ -60,16 +60,17 @@ enum BookingState {
 model Booking {
   id         String       @id @default(cuid())
   userId     String
-  user   User         @relation(fields: [userId], references: [id])
-  creator    User[] @relation(name: "creator")
-  customer User[] @relation(name: "customer")
+  creator    User         @relation("Booking", fields: [userId], references: [id])
+  customer   User?        @relation("Bookings", fields: [customerId], references: [id])
+  customerId String?
   start_time DateTime
   end_time   DateTime
   bookable   BookingState @default(IDLE)
-  updated_at DateTime @updatedAt
-  created_at DateTime @default(now())
-  
+  updated_at DateTime     @updatedAt
+  created_at DateTime     @default(now())
+
   @@index([userId])
+  @@index([customerId])
 }
 
 model VerificationToken {
