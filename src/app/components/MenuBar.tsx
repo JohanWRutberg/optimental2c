@@ -215,6 +215,7 @@ const MenuBar = () => {
                       endContent={icons.chevron}
                       radius="sm"
                       variant="light"
+                      size="lg"
                     >
                       Admin
                     </Button>
@@ -230,30 +231,37 @@ const MenuBar = () => {
                 >
                   <DropdownItem
                     key="users"
-                    description="Ladda in alla registrerade användare"
+                    description="Visa alla registrerade användare"
                     startContent={icons.users}
-                    href="/profile"
+                    href="/admin/users"
                   >
-                    <Link href="/profile">Användare</Link>
-                  </DropdownItem>
-
-                  <DropdownItem key="---" description="Vad är psykologi?" startContent={icons.psychology}>
-                    <Link href="/">Psykologi</Link>
+                    Användare
                   </DropdownItem>
 
                   <DropdownItem
                     key="---"
-                    description="Text text text text text text text text text text text text text text text text text text text text text text."
+                    description="Uppladdade filer. Ladda upp, Ladda ner och Ta bort filer."
                     startContent={icons.doc}
+                    href="/admin/files"
                   >
-                    <Link href="/">Länk</Link>
+                    Dokument
+                  </DropdownItem>
+
+                  <DropdownItem
+                    key="---"
+                    description="Text text text text text text text."
+                    startContent={icons.psychology}
+                    href="/admin"
+                  >
+                    Länk
                   </DropdownItem>
                   <DropdownItem
                     key="---"
-                    description="Text text text text text text text text text text text text text text text text text text text text text text."
+                    description="Text text text text text text text text text."
                     startContent={icons.user}
+                    href="/admin"
                   >
-                    <Link href="/">Länk</Link>
+                    Länk
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
