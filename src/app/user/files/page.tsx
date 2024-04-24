@@ -65,15 +65,23 @@ export default function Files() {
   };
 
   const handleDownload = async () => {
+    // Ensure that there are selected files to download
+    if (selectedFiles.length === 0) return;
+
+    // Iterate over each selected file
     for (const fileName of selectedFiles) {
+      // Find the corresponding file object by name
       const file = fileList.find((item) => item.name === fileName);
-      if (file) {
-        const link = document.createElement("a");
-        link.href = file.url;
-        link.download = file.name;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+
+      // If the file is found and has a URL
+      if (file && file.url) {
+        // Open the file URL in a new tab/window
+        const newWindow = window.open(file.url, "_blank");
+
+        // Focus the new window (optional)
+        if (newWindow) {
+          newWindow.focus();
+        }
       }
     }
   };
@@ -109,8 +117,8 @@ export default function Files() {
 
   return (
     <div className="flex flex-col bg-[url('/img/bg.jpg')] bg-cover h-screen bg-center items-center justify-center">
-      <h1 className="text-3xl font-bold mb-4">Ladda upp - Radera och Ladda ner filer</h1>
-      <input type="file" onChange={handleFileChange} />
+      <h1 className="text-3xl font-bold mb-4">Ladda ner filer</h1>
+      {/* <input type="file" onChange={handleFileChange} />
       <Button
         color="primary"
         variant="ghost"
@@ -119,13 +127,13 @@ export default function Files() {
         className="text-white px-4 py-2 mt-2 rounded"
       >
         Ladda upp
-      </Button>
-      {uploadProgress !== null && (
+      </Button> */}
+      {/* {uploadProgress !== null && (
         <progress value={uploadProgress} max="100" style={{ width: "50%", marginTop: "8px" }} />
-      )}
+      )} */}
       {fileList.length > 0 && (
         <div className="mt-4">
-          <h2 className="text-xl font-bold mb-2">Uppladdade filer</h2>
+          <h2 className="text-xl font-bold mb-2">Mina filer</h2>
           <ul>
             {fileList.map((file) => (
               <li key={file.name}>
@@ -147,13 +155,13 @@ export default function Files() {
           >
             Ladda ner valda fil/filer
           </button>
-          <button
+          {/* <button
             onClick={handleDeleteSelected}
             disabled={selectedFiles.length === 0}
             className="bg-red-500 text-white px-4 py-2 mt-2 ml-2 rounded"
           >
             Radera vald fil/filer
-          </button>
+          </button> */}
         </div>
       )}
     </div>
