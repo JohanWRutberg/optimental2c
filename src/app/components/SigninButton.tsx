@@ -14,7 +14,8 @@ import {
   DropdownTrigger,
   Dropdown,
   DropdownMenu,
-  User
+  User,
+  Avatar
 } from "@nextui-org/react";
 import { IoLogOut } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
@@ -38,14 +39,52 @@ const SigninButton = () => {
             <span className="relative inline-flex rounded-full h-3 w-3 bg-[#EA5709]"></span>
           </span>
 
-          <Dropdown className="bg-primary-blue bg-opacity-5 shadow-lg backdrop-blur-xl backdrop-filter">
+          <div className="flex items-center gap-4">
+            <Dropdown placement="bottom-start">
+              <DropdownTrigger>
+                <User
+                  as="button"
+                  avatarProps={{
+                    isBordered: true,
+                    src: session.user?.image!
+                  }}
+                  className="transition-transform"
+                  /* description={session.user.lastName} */
+                  name={icons.chevron}
+                />
+              </DropdownTrigger>
+              <DropdownMenu aria-label="User Actions" variant="flat" className="text-[#ffffff] bg-primary-blue">
+                <DropdownItem key="profile" className="h-14 gap-2">
+                  <p className="font-bold">
+                    {session.user.firstName} {session.user.lastName}
+                  </p>
+                  <p className="font-bold">{session.user.role}</p>
+                </DropdownItem>
+                <DropdownItem key="users" color="success" startContent={icons.profile} href="/profile">
+                  <Link href="/profile" className="text-[#ffffff] transition-colors">
+                    Profil
+                  </Link>
+                </DropdownItem>
+                <DropdownItem
+                  key="logout"
+                  color="danger"
+                  description=""
+                  startContent={icons.logout}
+                  href="/api/auth/signout"
+                >
+                  <Link href="/api/auth/signout" className="text-[#ffffff] transition-colors">
+                    Logga ut
+                  </Link>
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+          {/* <Dropdown className="bg-primary-blue bg-opacity-5 shadow-lg backdrop-blur-xl backdrop-filter">
             <NavbarItem>
               <DropdownTrigger>
                 <span className="text-[#ffffff] hover:text-sky-300 cursor-pointer">
                   {`${session.user.firstName}`} {`${session.user.lastName}`}
                 </span>
-
-                {/* </Button> */}
               </DropdownTrigger>
             </NavbarItem>
 
@@ -70,7 +109,7 @@ const SigninButton = () => {
                 </Link>
               </DropdownItem>
             </DropdownMenu>
-          </Dropdown>
+          </Dropdown> */}
         </div>
       )}
       {!session && (
@@ -89,7 +128,44 @@ const SigninButton = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffffff] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-[#EA5709]"></span>
           </span>
-          <Dropdown className="bg-primary-blue bg-opacity-5 shadow-lg backdrop-blur-xl backdrop-filter">
+
+          <div className="flex items-center gap-4">
+            <Dropdown placement="bottom-start">
+              <DropdownTrigger>
+                <User
+                  as="button"
+                  avatarProps={{
+                    isBordered: true,
+                    src: session.user?.image!
+                  }}
+                  className="transition-transform"
+                  description={session.user.role}
+                  name={session.user.name}
+                />
+              </DropdownTrigger>
+              <DropdownMenu aria-label="User Actions" variant="flat">
+                <DropdownItem key="profile" className="h-14 gap-2">
+                  <p className="font-bold">Inloggad som</p>
+                  <p className="font-bold">{session.user.role}</p>
+                </DropdownItem>
+                <DropdownItem key="users" color="success" startContent={icons.profile} href="/profile">
+                  <Link href="/profile">Profil</Link>
+                </DropdownItem>
+                <DropdownItem
+                  key="logout"
+                  color="danger"
+                  description=""
+                  startContent={icons.logout}
+                  href="/api/auth/signout"
+                >
+                  <Link href="/api/auth/signout" className="text-[#ffffff] transition-colors">
+                    Logga ut
+                  </Link>
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+          {/* <Dropdown className="bg-primary-blue bg-opacity-5 shadow-lg backdrop-blur-xl backdrop-filter">
             <NavbarItem>
               <DropdownTrigger>
                 <Image
@@ -118,7 +194,7 @@ const SigninButton = () => {
                 </Link>
               </DropdownItem>
             </DropdownMenu>
-          </Dropdown>
+          </Dropdown> */}
         </div>
       )}
     </div>

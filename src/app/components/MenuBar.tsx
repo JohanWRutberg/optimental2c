@@ -8,7 +8,19 @@ import SigninButton from "./SigninButton";
 import Image from "next/image";
 import Logo from "../../../public/LoggaText.svg";
 import React from "react";
-import { NavbarItem, Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, User } from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Button,
+  DropdownItem,
+  DropdownTrigger,
+  Dropdown,
+  DropdownMenu,
+  User,
+  Avatar
+} from "@nextui-org/react";
 import { FaUsers, FaChevronDown, FaAppleWhole, FaChartBar } from "react-icons/fa6";
 import { MdPsychology } from "react-icons/md";
 import { IoDocuments, IoCalendarNumber } from "react-icons/io5";
@@ -53,7 +65,7 @@ const MenuBar = () => {
           </li>
           <li>
             {session?.user && session?.user.role === "ADMIN" && (
-              <Dropdown className="bg-primary-blue bg-opacity-5 shadow-lg backdrop-blur-xl backdrop-filter">
+              <Dropdown placement="bottom-start">
                 <NavbarItem>
                   <DropdownTrigger>
                     <Button
@@ -71,7 +83,7 @@ const MenuBar = () => {
 
                 <DropdownMenu
                   aria-label="Admin menu"
-                  className="w-[320px]"
+                  className="w-[320px] text-[#ffffff] bg-primary-blue"
                   itemClasses={{
                     base: "gap-4"
                   }}
@@ -116,7 +128,7 @@ const MenuBar = () => {
           </li>
           <li>
             {session?.user && session?.user.role === "USER" && (
-              <Dropdown className="bg-primary-blue bg-opacity-5 shadow-lg backdrop-blur-xl backdrop-filter">
+              <Dropdown placement="bottom-start">
                 <NavbarItem>
                   <DropdownTrigger>
                     <Button
@@ -134,7 +146,7 @@ const MenuBar = () => {
 
                 <DropdownMenu
                   aria-label="User menu"
-                  className="w-[320px]"
+                  className="w-[320px] text-[#ffffff] bg-primary-blue"
                   itemClasses={{
                     base: "gap-4"
                   }}
@@ -206,7 +218,7 @@ const MenuBar = () => {
 
           <li>
             {session?.user && session?.user.role === "ADMIN" && (
-              <Dropdown className="bg-primary-blue bg-opacity-5 shadow-lg backdrop-blur-xl backdrop-filter">
+              <Dropdown placement="bottom-start">
                 <NavbarItem>
                   <DropdownTrigger>
                     <Button
@@ -224,7 +236,7 @@ const MenuBar = () => {
 
                 <DropdownMenu
                   aria-label="Admin menu"
-                  className="w-[320px]"
+                  className="w-[320px] text-[#ffffff] bg-primary-blue"
                   itemClasses={{
                     base: "gap-4"
                   }}
@@ -269,7 +281,7 @@ const MenuBar = () => {
           </li>
           <li>
             {session?.user && session?.user.role === "USER" && (
-              <Dropdown className="bg-primary-blue bg-opacity-5 shadow-lg backdrop-blur-xl backdrop-filter">
+              <Dropdown placement="bottom-start">
                 <NavbarItem>
                   <DropdownTrigger>
                     <Button
@@ -287,7 +299,7 @@ const MenuBar = () => {
 
                 <DropdownMenu
                   aria-label="User menu"
-                  className="w-[320px]"
+                  className="w-[320px] text-[#ffffff] bg-primary-blue"
                   itemClasses={{
                     base: "gap-4"
                   }}

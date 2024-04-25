@@ -65,15 +65,23 @@ export default function Files() {
   };
 
   const handleDownload = async () => {
+    // Ensure that there are selected files to download
+    if (selectedFiles.length === 0) return;
+
+    // Iterate over each selected file
     for (const fileName of selectedFiles) {
+      // Find the corresponding file object by name
       const file = fileList.find((item) => item.name === fileName);
-      if (file) {
-        const link = document.createElement("a");
-        link.href = file.url;
-        link.download = file.name;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+
+      // If the file is found and has a URL
+      if (file && file.url) {
+        // Open the file URL in a new tab/window
+        const newWindow = window.open(file.url, "_blank");
+
+        // Focus the new window (optional)
+        if (newWindow) {
+          newWindow.focus();
+        }
       }
     }
   };
