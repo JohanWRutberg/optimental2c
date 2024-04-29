@@ -34,10 +34,10 @@ const SigninButton = () => {
     <div className="flex-col p-4">
       {session?.user.firstName && (
         <div className="flex flex-row gap-3 items-center">
-          <span className="relative flex h-3 w-3 justify-center">
+          {/* <span className="relative flex h-3 w-3 justify-center">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffffff] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-[#EA5709]"></span>
-          </span>
+          </span> */}
 
           <div className="flex items-center gap-4">
             <Dropdown placement="bottom-start">
@@ -46,10 +46,12 @@ const SigninButton = () => {
                   as="button"
                   avatarProps={{
                     isBordered: true,
+                    radius: "lg",
+                    color: "primary",
                     src: session.user?.image!
                   }}
                   className="transition-transform"
-                  /* description={session.user.lastName} */
+                  description=""
                   name={icons.chevron}
                 />
               </DropdownTrigger>
@@ -124,10 +126,10 @@ const SigninButton = () => {
       )}
       {session?.user.image && (
         <div className="flex flex-row items-center gap-4">
-          <span className="relative flex h-3 w-3 justify-center">
+          {/* <span className="relative flex h-3 w-3 justify-center">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffffff] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-[#EA5709]"></span>
-          </span>
+          </span> */}
 
           <div className="flex items-center gap-4">
             <Dropdown placement="bottom-start">
@@ -136,11 +138,13 @@ const SigninButton = () => {
                   as="button"
                   avatarProps={{
                     isBordered: true,
+                    radius: "lg",
+                    color: "primary",
                     src: session.user?.image!
                   }}
                   className="transition-transform"
-                  description={session.user.role}
-                  name={session.user.name}
+                  description=""
+                  name={icons.chevron}
                 />
               </DropdownTrigger>
               <DropdownMenu aria-label="User Actions" variant="flat">

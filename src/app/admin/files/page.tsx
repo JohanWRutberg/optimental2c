@@ -84,6 +84,8 @@ export default function Files() {
         }
       }
     }
+    // Clear selected files after initiating the download
+    setSelectedFiles([]);
   };
 
   const handleDeleteSelected = () => {
@@ -117,7 +119,7 @@ export default function Files() {
 
   return (
     <div className="flex flex-col bg-[url('/img/bg.jpg')] bg-cover h-screen bg-center items-center justify-center">
-      <h1 className="text-4xl font-bold mb-4 p-4">Ladda upp, Radera och Ladda ner filer</h1>
+      <h1 className="text-3xl font-bold mb-4 p-4">Ladda upp, Ladda ner och Radera filer</h1>
       <div className="flex flex-col justify-center mb-8">
         <input type="file" onChange={handleFileChange} />
 
@@ -132,7 +134,7 @@ export default function Files() {
         </Button>
       </div>
       {uploadProgress !== null && (
-        <progress value={uploadProgress} max="100" style={{ width: "50%", marginTop: "8px" }} />
+        <progress value={uploadProgress} max="100" style={{ width: "30%", marginTop: "8px" }} />
       )}
       {fileList.length > 0 && (
         <div className="mt-4">
