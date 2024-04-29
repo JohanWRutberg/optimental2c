@@ -1,26 +1,64 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { User } from "@prisma/client"; // Import User type from Prisma client
+import { User } from "@prisma/client";
 
 export default function Users() {
-  const [users, setUsers] = useState<User[]>([]); // Explicitly specify User[] type
+  const { data: session, status } = useSession();
+  const [users, setUsers] = useState<User[]>([]);
+
+  /* useEffect(() => {
+    if (session) {
+      fetch("/api/users")
+        .then((response) => response.json())
+        .then((responseData) => setUsers(responseData))
+        .catch((error) => console.error("Error fetching users:", error));
+    }
+  }, [session]); */
 
   useEffect(() => {
-    try {
-      fetch("/api/users").then((response) => response.json().then((responseData) => setUsers(responseData)));
-    } catch (error) {
-      console.error("Error fetching users:", error);
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch("/api/users");
+        if (!response.ok) {
+          throw new Error("Failed to fetch users");
+        }
+        const responseData: User[] = await response.json();
+
+        // Sort alphabetically by firstName
+        const sortedUsers = responseData.sort((a: User, b: User) => a.firstName.localeCompare(b.firstName));
+
+        setUsers(sortedUsers);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    if (session) {
+      fetchUsers();
     }
-  }, []);
+  }, [session]);
+
+  if (status === "loading") {
+    return (
+      <p className="flex flex-col bg-[url('/img/bg.jpg')] bg-cover h-screen bg-center items-center justify-center">
+        Loading...
+      </p>
+    );
+  }
+
+  if (!session) {
+    return <p>You are not authenticated.</p>;
+  }
 
   return (
     <section className="flex flex-col bg-[url('/img/bg.jpg')] bg-cover h-screen bg-center items-center justify-center">
-      <h1 className="text-5xl">Du är inloggad som ADMIN</h1>
-      <p className="text-2xl max-w-2xl text-center mt-10">Det här är sidan som listar Användare för ADMIN.</p>
+      <h1 className="text-4xl">Hej {session?.user?.firstName}!</h1>
+
       <div className="mt-10">
-        <h2 className="text-3xl mb-4">Registered Users:</h2>
+        <h2 className="text-3xl mb-4">Registrerade användare:</h2>
         {users.length > 0 ? (
           <ul>
             {users.map((user) => (
@@ -33,9 +71,6 @@ export default function Users() {
           <p>Loading users...</p>
         )}
       </div>
-      <Link href="/" className="text-2xl underline mt-8">
-        Tillbaka till startsidan
-      </Link>
     </section>
   );
 }
