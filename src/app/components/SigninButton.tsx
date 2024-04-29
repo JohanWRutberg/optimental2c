@@ -3,20 +3,8 @@
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaUsers, FaChevronDown, FaAppleWhole, FaChartBar } from "react-icons/fa6";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Button,
-  DropdownItem,
-  DropdownTrigger,
-  Dropdown,
-  DropdownMenu,
-  User,
-  Avatar
-} from "@nextui-org/react";
+import { FaUsers, FaChevronDown, FaChartBar } from "react-icons/fa6";
+import { Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, User, Avatar } from "@nextui-org/react";
 import { IoLogOut } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 
@@ -81,37 +69,6 @@ const SigninButton = () => {
               </DropdownMenu>
             </Dropdown>
           </div>
-          {/* <Dropdown className="bg-primary-blue bg-opacity-5 shadow-lg backdrop-blur-xl backdrop-filter">
-            <NavbarItem>
-              <DropdownTrigger>
-                <span className="text-[#ffffff] hover:text-sky-300 cursor-pointer">
-                  {`${session.user.firstName}`} {`${session.user.lastName}`}
-                </span>
-              </DropdownTrigger>
-            </NavbarItem>
-
-            <DropdownMenu
-              aria-label="Profile"
-              className="w-[220px]"
-              itemClasses={{
-                base: "gap-4"
-              }}
-            >
-              <DropdownItem
-                key="users"
-                description={`(${session.user.role})`}
-                startContent={icons.profile}
-                href="/profile"
-              >
-                <Link href="/profile">Profil</Link>
-              </DropdownItem>
-              <DropdownItem key="logout" description="" startContent={icons.logout} href="/api/auth/signout">
-                <Link href="/api/auth/signout" className="text-[#ffffff] transition-colors">
-                  Logga ut
-                </Link>
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown> */}
         </div>
       )}
       {!session && (
@@ -142,7 +99,7 @@ const SigninButton = () => {
                     color: "primary",
                     src: session.user?.image!
                   }}
-                  className="transition-transform"
+                  className="transition-transform animate-drip-expand"
                   description=""
                   name={icons.chevron}
                 />
@@ -169,36 +126,6 @@ const SigninButton = () => {
               </DropdownMenu>
             </Dropdown>
           </div>
-          {/* <Dropdown className="bg-primary-blue bg-opacity-5 shadow-lg backdrop-blur-xl backdrop-filter">
-            <NavbarItem>
-              <DropdownTrigger>
-                <Image
-                  src={session.user?.image!}
-                  width={500}
-                  height={500}
-                  alt="Profile pic"
-                  className="h-10 w-10 rounded-full cursor-pointer mx-auto hoover:opacity-50"
-                />
-              </DropdownTrigger>
-            </NavbarItem>
-
-            <DropdownMenu
-              aria-label="Profile"
-              className="w-[220px]"
-              itemClasses={{
-                base: "gap-4"
-              }}
-            >
-              <DropdownItem key="users" description="Din användar profil" startContent={icons.profile} href="/profile">
-                <Link href="/profile">Profil</Link>
-              </DropdownItem>
-              <DropdownItem key="logout" description="" startContent={icons.logout} href="/api/auth/signout">
-                <Link href="/api/auth/signout" className="text-[#ffffff] transition-colors">
-                  Logga ut
-                </Link>
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown> */}
         </div>
       )}
     </div>
